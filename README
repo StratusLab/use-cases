@@ -1,0 +1,2 @@
+Scripts require that the StratusLab client is installed and configured.
+The messaging use case requires that pika (AMQP python client) be installed.
