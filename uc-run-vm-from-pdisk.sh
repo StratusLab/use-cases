@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. uc-utils.sh
+. ./uc-utils.sh
 
 export TTYLINUX_URL=http://appliances.stratuslab.eu/images/base/ttylinux-9.7-i486-base/1.3/ttylinux-9.7-i486-base-1.3.img.gz
 export UBUNTU_ID=OWojA0YDjya7Uhzf7fDRulB3pz3

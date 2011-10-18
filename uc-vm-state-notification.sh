@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. uc-utils.sh
+. ./uc-utils.sh
 
 # Must supply notification coordinates.
 MSG_RECIPIENTS=$1 || exit 1
@@ -26,4 +26,3 @@ echo "ssh succeeded"
 
 echo "Killing machine..."
 stratus-kill-instance ${vmid}
-

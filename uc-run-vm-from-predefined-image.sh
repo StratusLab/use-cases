@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. uc-utils.sh
+. ./uc-utils.sh
 
 export TTYLINUX_ID=LwcRbwCalYSysY1wftQdAj6Bwoi
 
