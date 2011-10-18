@@ -32,8 +32,13 @@ ssh_address () {
   ssh_ok=1
   ssh_limit=${2-$SSH_LIMIT}
 
+  ssh_id=""
+  if [ "x$STRATUSLAB_KEY" -ne "x" ]; then
+    ssh_id="-i $STRATUSLAB_KEY"
+  fi
+
   for ((i=0; i<=${ssh_limit}; i++)); do
-    ssh -q -o 'StrictHostKeyChecking=false' root@${1-$SSH_ADDR} /bin/true && ssh_ok=0 && break
+    ssh -q $ssh_id -o 'StrictHostKeyChecking=false' root@${1-$SSH_ADDR} /bin/true && ssh_ok=0 && break
     sleep ${3-$SSH_SLEEP}
   done
 
