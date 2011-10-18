@@ -38,5 +38,5 @@ if [ $rc -ne 0 ]; then
   failed=$rc
 fi
 
-exit $failed
+exit failed
 
