@@ -14,6 +14,12 @@ run_cmd () {
 
 failed=0
 
+run_cmd ./stratus_tutorial_dist.py
+rc=$?
+if [ $rc -ne 0]; then
+  failed=$rc
+fi
+
 run_cmd ./uc-run-vm-from-predefined-image.sh
 rc=$?
 if [ $rc -ne 0]; then
