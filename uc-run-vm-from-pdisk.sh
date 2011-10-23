@@ -7,6 +7,12 @@ export UBUNTU_ID=OWojA0YDjya7Uhzf7fDRulB3pz3
 
 TAG=`date`
 
+ssh_id=""
+if [ "x$STRATUSLAB_PRIVATE_KEY" != "x" ]; then
+  ssh_id="-i $STRATUSLAB_PRIVATE_KEY"
+fi
+SSH="ssh $ssh_id -t -t -q -o 'StrictHostKeyChecking=false'"
+
 echo "Creating persistent disk..."
 uuid=`stratus-create-volume -s 1 --tag "$TAG" | cut -d ' ' -f 2`
 echo "Disk UUID: ${uuid}"
@@ -29,16 +35,16 @@ echo "Trying to ssh into machine..."
 echo "ssh succeeded"
 
 echo "Add curl to machine..."
-ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} apt-get install -y curl
+$SSH root@${ipaddr} apt-get install -y curl
 
 echo "List disks..."
-ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} fdisk -l 
+$SSH root@${ipaddr} fdisk -l 
 
 echo "Dump TTYLINUX image into disk"
-ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} curl $TTYLINUX_URL \| gunzip \> /dev/sdc  
+$SSH root@${ipaddr} curl $TTYLINUX_URL \| gunzip \> /dev/sdc  
 
 echo "List disks..."
-ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} fdisk -l 
+$SSH root@${ipaddr} fdisk -l 
 
 echo "Killing machine..."
 stratus-kill-instance ${vmid}
