@@ -12,12 +12,12 @@ ipaddr=`echo $output | cut -d ',' -f 2 | sed 's/ //'`
 echo "Machine instance: VM ID=${vmid}, IP ADDR=${ipaddr}"
 
 echo "Trying to ping machine..."
-ping_address ${ipaddr} || echo "ping failed" || exit 1
+ping_address ${ipaddr}
 
 echo "ping succeeded"
 
 echo "Trying to ssh into machine..."
-`ssh_address ${ipaddr}` || echo "ssh failed" || exit 1
+`ssh_address ${ipaddr}`
 
 echo "ssh succeeded"
 
