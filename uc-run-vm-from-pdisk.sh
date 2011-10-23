@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -xe
 
 . ./uc-utils.sh
 
@@ -12,6 +12,10 @@ if [ "x$STRATUSLAB_PRIVATE_KEY" != "x" ]; then
   ssh_id="-i $STRATUSLAB_PRIVATE_KEY"
 fi
 SSH="ssh $ssh_id -t -t -q -o StrictHostKeyChecking=false"
+
+echo "PRIVATE_KEY=$STRATUSLAB_PRIVATE_KEY"
+echo "PUBLIC_KEY=$STRATUSLAB_KEY"
+echo "SSH=$ssh"
 
 echo "Creating persistent disk..."
 uuid=`stratus-create-volume -s 1 --tag "$TAG" | cut -d ' ' -f 2`
