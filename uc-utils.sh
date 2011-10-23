@@ -33,8 +33,8 @@ ssh_address () {
   ssh_limit=${2-$SSH_LIMIT}
 
   ssh_id=""
-  if [ "x$STRATUSLAB_KEY" != "x" ]; then
-    ssh_id="-i $STRATUSLAB_KEY"
+  if [ "x$STRATUSLAB_PRIVATE_KEY" != "x" ]; then
+    ssh_id="-i $STRATUSLAB_PRIVATE_KEY"
   fi
 
   for ((i=0; i<=${ssh_limit}; i++)); do
