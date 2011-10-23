@@ -29,16 +29,16 @@ echo "Trying to ssh into machine..."
 echo "ssh succeeded"
 
 echo "Add curl to machine..."
-ssh -q -o 'StrictHostKeyChecking=false' root@${ipaddr} apt-get install -y curl
+ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} apt-get install -y curl
 
 echo "List disks..."
-ssh -q -o 'StrictHostKeyChecking=false' root@${ipaddr} fdisk -l 
+ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} fdisk -l 
 
 echo "Dump TTYLINUX image into disk"
-ssh -q -o 'StrictHostKeyChecking=false' root@${ipaddr} curl $TTYLINUX_URL \| gunzip \> /dev/sdc  
+ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} curl $TTYLINUX_URL \| gunzip \> /dev/sdc  
 
 echo "List disks..."
-ssh -q -o 'StrictHostKeyChecking=false' root@${ipaddr} fdisk -l 
+ssh -t -t -q -o 'StrictHostKeyChecking=false' root@${ipaddr} fdisk -l 
 
 echo "Killing machine..."
 stratus-kill-instance ${vmid}
