@@ -1,4 +1,4 @@
-#!/bin/sh -xe
+#!/bin/sh -e
 
 PING_LIMIT=20
 PING_SLEEP=5
