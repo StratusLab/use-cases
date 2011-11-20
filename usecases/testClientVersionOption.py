@@ -3,17 +3,17 @@ import os, os.path
 
 from usecases.TestUtils import *
 
-class testClientHelpOption(unittest.TestCase):
+class testClientVersionOption(unittest.TestCase):
 
     def _execute_help_option(self, file):
         # FIXME: This exception should not be made.
         if (file != 'stratus-ovf'):
             print which(file)
-            execute([file, "--help"])
+            execute([file, "--version"])
 
-    def test_client_help_option(self):
+    def test_client_version_option(self):
         for f in os.listdir(stratuslabBinDir()):
             self._execute_help_option(f)
 
-suite = unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)
+suite = unittest.TestLoader().loadTestsFromTestCase(testClientVersionOption)
 unittest.TextTestRunner(verbosity=2).run(suite)
