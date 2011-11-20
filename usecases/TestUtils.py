@@ -1,11 +1,17 @@
 
 import os
 import os.path
+import subprocess
+import sys
 
 def which(file):
     for path in os.environ["PATH"].split(os.pathsep):
         if file in os.listdir(path):
-            print "%s/%s" % (path, file)
+            return os.path.join(path, file)
+
+def stratuslabBinDir():
+    location = which('stratus-describe-instance')
+    return os.path.dirname(location)
 
 def execute(cmd, returnType=None, exit=True, quiet=False, shell=False):
     printCmd(' '.join(cmd))
@@ -47,15 +53,15 @@ def printAndFlush(msg):
     sys.stdout.flush()
 
 def printAction(msg):
-    self.printAndFlush('\n :::%s:::\n' % (':' *len(msg)))
-    self.printAndFlush(' :: %s ::\n' % msg)
-    self.printAndFlush(' :::%s:::\n' % (':' *len(msg)))
+    printAndFlush('\n :::%s:::\n' % (':' *len(msg)))
+    printAndFlush(' :: %s ::\n' % msg)
+    printAndFlush(' :::%s:::\n' % (':' *len(msg)))
 
 def printStep(msg):
-    self.printAndFlush(' :: %s\n' % msg)
+    printAndFlush(' :: %s\n' % msg)
 
 def printCmd(msg):
-    self.printAndFlush('  [Executing] %s\n' % msg)
+    printAndFlush('  [Executing] %s\n' % msg)
 
 
 

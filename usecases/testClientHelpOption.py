@@ -6,18 +6,14 @@ from usecases.TestUtils import *
 class testClientHelpOption(unittest.TestCase):
 
     def _execute_help_option(self, file):
-        print which(file)
+        # FIXME: This exception should not be made.
+        if (file != 'stratus-ovf'):
+            print which(file)
+            execute([file, "--help"])
 
-    def setUp(self):
-        print "setUp"
-
-    def tearDown(self):
-        print "tearDown"
-
-    def test_something(self):
-        dir = '/Users/loomis/stratuslab/bin'
-        for f in os.listdir(dir):
+    def test_client_help_option(self):
+        for f in os.listdir(stratuslabBinDir()):
             self._execute_help_option(f)
 
 suite = unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)
-unittest.TextTestRunner(verbosity=2).run(suite)
+unittest.TextTestRunner().run(suite)
