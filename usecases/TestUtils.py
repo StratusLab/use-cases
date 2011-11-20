@@ -84,7 +84,7 @@ def stratusKillInstance(vmId):
 def getVmState(vmId):
     return stratusDescribeInstance(vmId).split('\n')[1].split(' ')[1]
 
-def waitVmRunningOrTimeout(vmId, timeout=(5*60), sleepInterval=5): 
+def waitVmRunningOrTimeout(vmId, timeout=(3*60), sleepInterval=5): 
     start = time.time()
     printStep('Started waiting for VM to be up at: %s' % start)
     state = ''
@@ -185,7 +185,7 @@ def ssh(ip='localhost', cmd='/bin/true', user='root'):
                cmd]
     execute(ssh_cmd)
 
-def sshConnectionOrTimeout(ip='localhost', user='root', timeout=(5*60), sleepInterval=5):
+def sshConnectionOrTimeout(ip='localhost', user='root', timeout=(3*60), sleepInterval=5):
     start = time.time()
     printStep('Started trying to SSH to VM: %s' % start)
     while ((time.time() - start) < timeout):
