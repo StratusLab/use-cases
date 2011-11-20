@@ -71,7 +71,8 @@ def stratusRunInstance(image, persistentDisk=None):
     if persistentDisk:
         cmd.extend(["--persistent-disk", persistentDisk ])
     response = execute(cmd)
-    return response.split(', ')
+    vm_id, vm_ip = response.split(', ')
+    return (vm_id.strip(), vm_ip.strip())
 
 def stratusDescribeInstance(vmId):
     return execute(["stratus-describe-instance", str(vmId)])
@@ -176,3 +177,21 @@ def stratusValidateMetadata(metadata):
 def stratusUploadMetadata(metadata):
     return execute(["stratus-upload-metadata", metadata])
 
+def ssh(ip='localhost', cmd='/bin/true', user='root'):
+    ssh_id = "%s@%s" % (user, ip)
+    ssh_cmd = ['ssh', ssh_id, '-t', '-t', '-q', 
+               '-o', 'ConnectTimeout=10', 
+               '-o', 'StrictHostKeyChecking=false', 
+               cmd]
+    execute(ssh_cmd)
+
+def sshConnectionOrTimeout(ip='localhost', user='root', timeout=(5*60), sleepInterval=5):
+    start = time.time()
+    printStep('Started trying to SSH to VM: %s' % start)
+    while ((time.time() - start) < timeout):
+        try:
+            ssh(ip, '/bin/true', user)
+            return
+        except Exception:
+            time.sleep(sleepInterval)
+    raise Exception('timeout exceeded while trying SSH')
