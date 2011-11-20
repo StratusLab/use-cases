@@ -1,8 +1,10 @@
 
 import os
 import os.path
+import random
 import subprocess
 import sys
+import tempfile
 import time
 
 def which(file):
@@ -112,3 +114,65 @@ def stratusAttachVolume(vmId, uuid):
 
 def stratusDetachVolume(vmId, uuid):
     return execute(["stratus-detach-volume", "-i", str(vmId), uuid])
+
+def createDummyImage(digits=1024):
+    file_descriptor, filename = tempfile.mkstemp()
+
+    file = None
+    try:
+        file = open(filename, 'w')
+        for i in range(0, digits):
+            file.write(randomDigit())
+    except Exception as e:
+        print e
+        raise e
+    finally:
+        closeFileReliably(file)
+
+    return (file_descriptor, filename)
+
+def randomDigit():
+    return str(random.choice(xrange(0,10)))
+
+def removeFile(file):
+    if (file):
+        try:
+            os.remove(file)
+        except Exception as e:
+            print e
+
+def closeFileReliably(file):
+    if (file):
+        try:
+            file.close()
+        except Exception as e:
+            print e
+
+def closeFileDescriptorReliably(file_descriptor):
+    if (file_descriptor):
+        try:
+            os.close(file_descriptor)
+        except Exception as e:
+            print e
+
+def stratusBuildMetadata(image):
+    execute(["stratus-build-metadata", 
+             "--author=Alice Smith",
+             "--os=dummyos", 
+             "--os-version=0.0", 
+             "--os-arch=i686",
+             "--version=1.0", 
+             image])
+
+def expectedMetadataFilename():
+    return "%s-%s-%s-base-%s.xml" % ("dummyos", "0.0", "i686", "1.0")
+
+def stratusSignMetadata(image):
+    execute(["stratus-sign-metadata", image]) 
+
+def stratusValidateMetadata(metadata):
+    execute(["stratus-validate-metadata", metadata])
+
+def stratusUploadMetadata(metadata):
+    return execute(["stratus-upload-metadata", metadata])
+
