@@ -20,12 +20,6 @@ if [ $rc -ne 0 ]; then
   failed=$rc
 fi
 
-run_cmd ./uc-run-vm-from-pdisk.sh
-rc=$?
-if [ $rc -ne 0 ]; then
-  failed=$rc
-fi
-
 run_cmd ./uc-vm-state-notification.py
 rc=$?
 if [ $rc -ne 0 ]; then
