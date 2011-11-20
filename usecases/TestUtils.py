@@ -3,6 +3,7 @@ import os
 import os.path
 import subprocess
 import sys
+import time
 
 def which(file):
     for path in os.environ["PATH"].split(os.pathsep):
@@ -16,7 +17,7 @@ def stratuslabBinDir():
 def execute(cmd, returnType=None, exit=True, quiet=False, shell=False):
     printCmd(' '.join(cmd))
     if quiet:
-        devNull = open('/dev/null', 'w')
+        devNull = open(os.devnull, 'w')
         stdout = devNull
         stderr = devNull
     else:
@@ -63,6 +64,33 @@ def printStep(msg):
 def printCmd(msg):
     printAndFlush('  [Executing] %s\n' % msg)
 
+def stratusRunInstance(image, persistentDisk=None):
+    cmd = ["stratus-run-instance", "--quiet", image]
+    if persistentDisk:
+        cmd.extend(["--persistent-disk", persistentDisk ])
+    response = execute(cmd)
+    return response.split(', ')
 
+def stratusDescribeInstance(vmId):
+    return execute(["stratus-describe-instance", str(vmId)])
+
+def stratusKillInstance(vmId):
+    if vmId:
+        execute(["stratus-kill-instance", str(vmId)])
+
+def getVmState(vmId):
+    return stratusDescribeInstance(vmId).split('\n')[1].split(' ')[1]
+
+def waitVmRunningOrTimeout(vmId, timeout=(5*60), sleepInterval=5): 
+    start = time.time()
+    printStep('Started waiting for VM to be up at: %s' % start)
+    state = ''
+    while state != 'Running' and ((time.time() - start) < timeout):
+        state = getVmState(vmId)
+        print "\tStatus of VM '%s' is  '%s'" % (vmId, state)
+        if state == 'Failed':
+            break
+        time.sleep(sleepInterval)
+    return state
 
 
