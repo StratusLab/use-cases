@@ -66,10 +66,12 @@ def printStep(msg):
 def printCmd(msg):
     printAndFlush('  [Executing] %s\n' % msg)
 
-def stratusRunInstance(image, persistentDisk=None):
+def stratusRunInstance(image, persistentDisk=None, options=None):
     cmd = ["stratus-run-instance", "--quiet", image]
     if persistentDisk:
         cmd.extend(["--persistent-disk", persistentDisk ])
+    if options:
+        cmd.extend(options)
     response = execute(cmd)
     vm_id, vm_ip = response.split(', ')
     return (vm_id.strip(), vm_ip.strip())
