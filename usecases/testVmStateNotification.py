@@ -13,7 +13,10 @@ class testVmStateNotification(unittest.TestCase):
     # minimal ttylinux image
     marketplaceId = 'LwcRbwCalYSysY1wftQdAj6Bwoi'
 
-    def create_channel():
+    vm_id = None
+    vm_ip = None
+
+    def create_channel(self):
         host = 'dev.rabbitmq.com'
         virtual_host = '/'
         user = 'guest'
@@ -30,15 +33,15 @@ class testVmStateNotification(unittest.TestCase):
 
         return (channel, parameters)
 
-    def get_expected_messages(vm_id):
+    def get_expected_messages(self):
         expected_messages = {}
         states = [ 'CREATE', 'RUNNING', 'DONE' ]
         for state in states:
-            msg = 'VM_ID=%s; STATE=%s' % (vm_id, state)
+            msg = 'VM_ID=%s; STATE=%s' % (self.vm_id, state)
             expected_messages[msg] = 1
         return expected_messages
 
-    def do_machine_lifecycle(parameters, queue):
+    def do_machine_lifecycle(self, parameters, queue):
         coords="dev.rabbitmq.com,/,guest,guest,%s" % (queue)
         print "Notification coordinates = %s" % (coords)
 
@@ -47,9 +50,8 @@ class testVmStateNotification(unittest.TestCase):
                                                     ['--notify', coords])
         waitVmRunningOrTimeout(self.vm_id)
         stratusKillInstance(self.vm_id)
-        self.vm_id = None
 
-    def receive_messages(channel, queue, expected_messages):
+    def receive_messages(self, channel, queue, expected_messages):
 
         iterations = 0
         while (iterations < 10 and len(expected_messages) != 0):
@@ -76,7 +78,7 @@ class testVmStateNotification(unittest.TestCase):
             raise BaseException(error)
 
 
-    def create_random_queue(channel):
+    def create_random_queue(self, channel):
         queue = 'stratuslab-' + str(random.uniform(1000,9999))
         channel.queue_declare(queue=queue)
         #channel.queue_declare(queue=queue, durable=False,
@@ -92,16 +94,16 @@ class testVmStateNotification(unittest.TestCase):
 
     def test_basic_vm_lifecycle(self):
 
-        (channel, parameters) = create_channel()
+        (channel, parameters) = self.create_channel()
 
-        queue = create_random_queue(channel)
+        queue = self.create_random_queue(channel)
 
-        do_machine_lifecycle(parameters, queue)
+        self.do_machine_lifecycle(parameters, queue)
 
-        expected_messages = get_expected_messages(self.vm_id)
+        expected_messages = self.get_expected_messages()
 
         # Receive messages; throws exception if not all are received.
-        receive_messages(channel, queue, expected_messages)
+        self.receive_messages(channel, queue, expected_messages)
 
     def suite():
         return unittest.TestLoader().loadTestsFromTestCase(testVmStateNotification)
