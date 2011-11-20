@@ -1,8 +1,12 @@
 import unittest
+import os, os.path
 
-import usecases.TestUtils
+from usecases.TestUtils import *
 
 class testClientHelpOption(unittest.TestCase):
+
+    def _execute_help_option(self, file):
+        print which(file)
 
     def setUp(self):
         print "setUp"
@@ -11,7 +15,9 @@ class testClientHelpOption(unittest.TestCase):
         print "tearDown"
 
     def test_something(self):
-        print "test_something"
+        dir = '/Users/loomis/stratuslab/bin'
+        for f in os.listdir(dir):
+            self._execute_help_option(f)
 
 suite = unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)
 unittest.TextTestRunner(verbosity=2).run(suite)
