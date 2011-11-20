@@ -5,15 +5,15 @@ from usecases.TestUtils import *
 
 class testClientHelpOption(unittest.TestCase):
 
-    def _execute_help_option(self, file):
+    def _execute_help_option(self, cmd):
         # FIXME: This exception should not be made.
-        if (file != 'stratus-ovf'):
-            print which(file)
-            execute([file, "--help"])
+        if (cmd != 'stratus-ovf'):
+            execute([cmd, "--help"])
 
     def test_client_help_option(self):
-        for f in os.listdir(stratuslabBinDir()):
-            self._execute_help_option(f)
+        for cmd in os.listdir(stratuslabBinDir()):
+            if (cmd.startswith("stratus-")):
+                self._execute_help_option(cmd)
 
 suite = unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)
 unittest.TextTestRunner(verbosity=2).run(suite)

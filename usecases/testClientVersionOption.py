@@ -5,15 +5,15 @@ from usecases.TestUtils import *
 
 class testClientVersionOption(unittest.TestCase):
 
-    def _execute_help_option(self, file):
+    def _execute_version_option(self, cmd):
         # FIXME: This exception should not be made.
-        if (file != 'stratus-ovf'):
-            print which(file)
-            execute([file, "--version"])
+        if (cmd != 'stratus-ovf'):
+            execute([cmd, "--version"])
 
     def test_client_version_option(self):
-        for f in os.listdir(stratuslabBinDir()):
-            self._execute_help_option(f)
+        for cmd in os.listdir(stratuslabBinDir()):
+            if (cmd.startswith("stratus-")):
+                self._execute_version_option(cmd)
 
 suite = unittest.TestLoader().loadTestsFromTestCase(testClientVersionOption)
 unittest.TextTestRunner(verbosity=2).run(suite)
