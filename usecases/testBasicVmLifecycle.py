@@ -5,6 +5,7 @@ from usecases.TestUtils import *
 
 class testBasicVmLifecycle(unittest.TestCase):
 
+    # minimal ttylinux image
     marketplaceId = 'LwcRbwCalYSysY1wftQdAj6Bwoi'
 
     def setUp(self):
@@ -17,4 +18,4 @@ class testBasicVmLifecycle(unittest.TestCase):
         waitVmRunningOrTimeout(self.vm_id)
 
     def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testClientVersionOption)
+        return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)

@@ -93,4 +93,22 @@ def waitVmRunningOrTimeout(vmId, timeout=(5*60), sleepInterval=5):
         time.sleep(sleepInterval)
     return state
 
+def stratusCreateVolume(size=1, tag='test-disk'):
+    response = execute(["stratus-create-volume", "--size=%s" % size, "--tag=%s" % tag])
+    return response.split(" ")[1].replace('\n', '')
 
+def stratusDeleteVolume(uuid):
+    if (uuid):
+        execute(["stratus-delete-volume", uuid])
+
+def stratusDescribeVolumes(uuid=None):
+    cmd = ["stratus-describe-volumes"]
+    if uuid:
+        cmd.append(uuid)
+    return execute(cmd)
+
+def stratusAttachVolume(vmId, uuid):
+    return execute(["stratus-attach-volume", "-i", str(vmId), uuid])
+
+def stratusDetachVolume(vmId, uuid):
+    return execute(["stratus-detach-volume", "-i", str(vmId), uuid])
