@@ -20,12 +20,6 @@ if [ $rc -ne 0 ]; then
   failed=$rc
 fi
 
-run_cmd ./uc-run-vm-from-predefined-image.sh
-rc=$?
-if [ $rc -ne 0 ]; then
-  failed=$rc
-fi
-
 run_cmd ./uc-run-vm-from-pdisk.sh
 rc=$?
 if [ $rc -ne 0 ]; then
