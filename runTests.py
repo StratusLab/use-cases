@@ -31,5 +31,27 @@ suite.addTest(usecases.testRunVmFromPersistentDisk.suite())
 suite.addTest(usecases.testVmIsAccessibleViaSsh.suite())
 suite.addTest(usecases.testVmStateNotification.suite())
 
-unittest.TextTestRunner(verbosity=0).run(suite)
+result = unittest.TextTestRunner(verbosity=0).run(suite)
+
+message = '''
+Errors:               %d
+Failures:             %d
+Skipped:              %d
+Expected Failures:    %d
+Unexpected Successes: %d
+Tests Run:            %d
+''' % (len(result.errors),
+       len(result.failures),
+       len(result.skipped),
+       len(result.expectedFailures),
+       len(result.unexpectedSuccesses),
+       result.testsRun)
+
+print message
+
+if result.wasSuccessful():
+    sys.exit(0)
+else:
+    sys.exit(1)
+
 
