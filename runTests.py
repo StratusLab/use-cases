@@ -41,13 +41,6 @@ suite.addTest(usecases.testVmStateNotification.suite())
 
 result = unittest.TextTestRunner(verbosity=0).run(suite)
 
-if result.errors:
-    print 'ERRORS (%s)' % len(result.errors)
-    print '___________'
-    for error in result.errors:
-        testCase, traceback = error
-        print testCase.id()
-
 formatResult('ERRORS', result.errors)
 formatResult('FAILURES', result.failures)
 formatResult('SKIPPED', result.skipped)
