@@ -10,7 +10,7 @@ class testClientVersionOption(unittest.TestCase):
         if (cmd != 'stratus-ovf'):
             execute([cmd, "--version"])
 
-    def test_client_version_option(self):
+    def test_usecase(self):
         for cmd in os.listdir(stratuslabBinDir()):
             if (cmd.startswith("stratus-")):
                 self._execute_version_option(cmd)

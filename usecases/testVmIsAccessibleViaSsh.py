@@ -14,7 +14,7 @@ class testVmIsAccessibleViaSsh(unittest.TestCase):
     def tearDown(self):
         stratusKillInstance(self.vm_id)
 
-    def test_basic_vm_lifecycle(self):
+    def test_usecase(self):
         waitVmRunningOrTimeout(self.vm_id)
         sshConnectionOrTimeout(self.vm_ip)
 

@@ -51,7 +51,7 @@ class testCopyMetadataEntries(unittest.TestCase):
 
         return filename
 
-    def test_sign_and_validate(self):
+    def test_usecase(self):
 
         for entry in self.entriesToCopy:
 

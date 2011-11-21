@@ -15,7 +15,7 @@ class testMetadataSignAndValidate(unittest.TestCase):
         removeFile(self.metadata)
         removeFile(self.metadata + ".orig")
 
-    def test_sign_and_validate(self):
+    def test_usecase(self):
         stratusBuildMetadata(self.filename)
         self.metadata = expectedMetadataFilename()
         if (not os.path.exists(self.metadata)):

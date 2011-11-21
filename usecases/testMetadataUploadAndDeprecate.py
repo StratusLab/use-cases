@@ -44,7 +44,7 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
         removeFile(self.metadata)
         removeFile(self.metadata + ".orig")
 
-    def test_upload_and_deprecate(self):
+    def test_usecase(self):
 
         stratusBuildMetadata(self.filename)
         self.metadata = expectedMetadataFilename()

@@ -10,7 +10,7 @@ class testClientHelpOption(unittest.TestCase):
         if (cmd != 'stratus-ovf'):
             execute([cmd, "--help"])
 
-    def test_client_help_option(self):
+    def test_usecase(self):
         for cmd in os.listdir(stratuslabBinDir()):
             if (cmd.startswith("stratus-")):
                 self._execute_help_option(cmd)

@@ -13,7 +13,7 @@ class testBasicPersistentDiskLifecycle(unittest.TestCase):
     def tearDown(self):
         stratusDeleteVolume(self.uuid)
 
-    def test_basic_vm_lifecycle(self):
+    def test_usecase(self):
         stratusDescribeVolumes(self.uuid)
 
 def suite():
