@@ -78,7 +78,7 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
         # Grandparent URL should provide a response. 
         _ = readRemoteFile(grandparent)
 
-        deprecatedUrl = stratusDeprecateMetadata(identifier, 'loomis@lal.in2p3.fr')
+        deprecatedUrl = stratusDeprecateMetadata(identifier, 'jane.tester@example.com')
         deprecatedEntry = readRemoteFile(deprecatedUrl)
         deprecatedTree = etree.fromstring(deprecatedEntry)
 
