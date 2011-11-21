@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import unittest
 
 import usecases.testCopyMetadataEntries
@@ -15,6 +16,13 @@ import usecases.testRunVmFromPersistentDisk
 import usecases.testVmIsAccessibleViaSsh
 import usecases.testVmStateNotification
 
+def formatResult(title, results):
+    if results:
+        print "\n----------\n%s\n----------\n" % title
+        for result in results:
+            testCase, traceback = result
+            print testCase.id()
+    
 suite = unittest.TestSuite()
 
 # Do this first to copy image entries used in tests.
@@ -32,6 +40,19 @@ suite.addTest(usecases.testVmIsAccessibleViaSsh.suite())
 suite.addTest(usecases.testVmStateNotification.suite())
 
 result = unittest.TextTestRunner(verbosity=0).run(suite)
+
+if result.errors:
+    print 'ERRORS (%s)' % len(result.errors)
+    print '___________'
+    for error in result.errors:
+        testCase, traceback = error
+        print testCase.id()
+
+formatResult('ERRORS', result.errors)
+formatResult('FAILURES', result.failures)
+formatResult('SKIPPED', result.skipped)
+formatResult('EXPECTED FAILURES', result.expectedFailures)
+formatResult('UNEXPECTED SUCCESSES', result.unexpectedSuccesses)
 
 message = '''
 Errors:               %d
@@ -53,5 +74,3 @@ if result.wasSuccessful():
     sys.exit(0)
 else:
     sys.exit(1)
-
-
