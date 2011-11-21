@@ -18,5 +18,5 @@ class testVmIsAccessibleViaSsh(unittest.TestCase):
         waitVmRunningOrTimeout(self.vm_id)
         sshConnectionOrTimeout(self.vm_ip)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testVmIsAccessibleViaSsh)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testVmIsAccessibleViaSsh)

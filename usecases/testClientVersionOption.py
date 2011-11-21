@@ -15,5 +15,5 @@ class testClientVersionOption(unittest.TestCase):
             if (cmd.startswith("stratus-")):
                 self._execute_version_option(cmd)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testClientVersionOption)

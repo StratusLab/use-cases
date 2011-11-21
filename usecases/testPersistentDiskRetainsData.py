@@ -56,5 +56,5 @@ class testPersistentDiskRetainsData(unittest.TestCase):
         stratusDetachVolume(self.vm_id_2, self.uuid)
         time.sleep(5)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testPersistentDiskRetainsData)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testPersistentDiskRetainsData)

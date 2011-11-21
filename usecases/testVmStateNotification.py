@@ -105,6 +105,5 @@ class testVmStateNotification(unittest.TestCase):
         # Receive messages; throws exception if not all are received.
         self.receive_messages(channel, queue, expected_messages)
 
-    @classmethod
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testVmStateNotification)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testVmStateNotification)

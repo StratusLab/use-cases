@@ -15,5 +15,5 @@ class testClientHelpOption(unittest.TestCase):
             if (cmd.startswith("stratus-")):
                 self._execute_help_option(cmd)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testClientHelpOption)

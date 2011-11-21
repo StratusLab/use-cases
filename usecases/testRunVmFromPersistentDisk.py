@@ -53,5 +53,5 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
         waitVmRunningOrTimeout(self.vm_id_ttylinux)
         sshConnectionOrTimeout(self.vm_ip_ttylinux)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testRunVmFromPersistentDisk)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testRunVmFromPersistentDisk)

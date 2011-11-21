@@ -6,7 +6,15 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib2
 
+def readRemoteFile(url):
+    fd = wget(url)
+    return fd.read()
+
+def wget(url):
+    return urllib2.urlopen(url)
+    
 def which(file):
     for path in os.environ["PATH"].split(os.pathsep):
         if file in os.listdir(path):
@@ -178,6 +186,13 @@ def stratusValidateMetadata(metadata):
 
 def stratusUploadMetadata(metadata):
     return execute(["stratus-upload-metadata", metadata])
+
+def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
+    return execute(["stratus-deprecate-metadata", 
+                    "--email", email,
+                    "--reason", reason,
+                    identifier
+                    ])
 
 def ssh(ip='localhost', cmd='/bin/true', user='root'):
     ssh_id = "%s@%s" % (user, ip)

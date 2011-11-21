@@ -29,5 +29,5 @@ class testMetadataSignAndValidate(unittest.TestCase):
         stratusSignMetadata(self.metadata)
         stratusValidateMetadata(self.metadata)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testMetadataSignAndValidate)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testMetadataSignAndValidate)

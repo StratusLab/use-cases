@@ -16,5 +16,5 @@ class testBasicPersistentDiskLifecycle(unittest.TestCase):
     def test_basic_vm_lifecycle(self):
         stratusDescribeVolumes(self.uuid)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testBasicPersistentDiskLifecycle)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testBasicPersistentDiskLifecycle)

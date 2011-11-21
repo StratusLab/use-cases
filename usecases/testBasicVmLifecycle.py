@@ -17,5 +17,5 @@ class testBasicVmLifecycle(unittest.TestCase):
     def test_basic_vm_lifecycle(self):
         waitVmRunningOrTimeout(self.vm_id)
 
-    def suite():
-        return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)
