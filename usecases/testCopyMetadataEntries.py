@@ -57,23 +57,24 @@ class testCopyMetadataEntries(unittest.TestCase):
 
             contents = readRemoteFile("%s%s" % (self.primaryMarketplaceUrl, entry))
 
-            tree = etree.fromstring(contents)
+            #tree = etree.fromstring(contents)
 
-            rdf = tree.find('.//{http://www.w3.org/1999/02/22-rdf-syntax-ns#}RDF')
+            #rdf = tree.find('.//{http://www.w3.org/1999/02/22-rdf-syntax-ns#}RDF')
 
-            endorsement = rdf.find('.//{http://mp.stratuslab.eu/slreq#}endorsement')
-            if not endorsement is None:
-                endorsement.text = None
-                endorsement.tail = None
-                children = endorsement.findall('*')
-                for child in children:
-                    endorsement.remove(child)
+            #endorsement = rdf.find('.//{http://mp.stratuslab.eu/slreq#}endorsement')
+            #if not endorsement is None:
+            #    endorsement.text = None
+            #    endorsement.tail = None
+            #    children = endorsement.findall('*')
+            #    for child in children:
+            #        endorsement.remove(child)
 
-            signatures = rdf.findall('{http://www.w3.org/2000/09/xmldsig#}Signature')
-            for signature in signatures:
-                rdf.remove(signature)
+            #signatures = rdf.findall('{http://www.w3.org/2000/09/xmldsig#}Signature')
+            #for signature in signatures:
+            #    rdf.remove(signature)
 
-            filename = self.writeTempFile(etree.tostring(rdf))
+            #filename = self.writeTempFile(etree.tostring(rdf))
+            filename = self.writeTempFile(contents)
 
             print "FILENAME: " + filename
 
