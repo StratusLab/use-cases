@@ -55,11 +55,13 @@ class testCopyMetadataEntries(unittest.TestCase):
 
         for entry in self.entriesToCopy:
 
+            # Contents are wrapped in a metadata root element. 
+            # Be sure to remove this element during the processing.
             contents = readRemoteFile("%s%s" % (self.primaryMarketplaceUrl, entry))
 
-            #tree = etree.fromstring(contents)
+            tree = etree.fromstring(contents)
 
-            #rdf = tree.find('.//{http://www.w3.org/1999/02/22-rdf-syntax-ns#}RDF')
+            rdf = tree.find('.//{http://www.w3.org/1999/02/22-rdf-syntax-ns#}RDF')
 
             #endorsement = rdf.find('.//{http://mp.stratuslab.eu/slreq#}endorsement')
             #if not endorsement is None:
@@ -73,8 +75,7 @@ class testCopyMetadataEntries(unittest.TestCase):
             #for signature in signatures:
             #    rdf.remove(signature)
 
-            #filename = self.writeTempFile(etree.tostring(rdf))
-            filename = self.writeTempFile(contents)
+            filename = self.writeTempFile(etree.tostring(rdf))
 
             print "FILENAME: " + filename
 
