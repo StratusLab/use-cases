@@ -172,7 +172,7 @@ def stratusBuildMetadata(image):
              "--os=dummyos", 
              "--os-version=0.0", 
              "--os-arch=i686",
-             "--version=1.0", 
+             "--image-version=1.0", 
              image])
 
 def expectedMetadataFilename():
