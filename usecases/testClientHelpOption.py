@@ -6,9 +6,7 @@ from usecases.TestUtils import *
 class testClientHelpOption(unittest.TestCase):
 
     def _execute_help_option(self, cmd):
-        # FIXME: This exception should not be made.
-        if (cmd != 'stratus-ovf'):
-            execute([cmd, "--help"])
+        execute([cmd, "--help"])
 
     def test_usecase(self):
         for cmd in os.listdir(stratuslabBinDir()):

@@ -6,9 +6,7 @@ from usecases.TestUtils import *
 class testClientVersionOption(unittest.TestCase):
 
     def _execute_version_option(self, cmd):
-        # FIXME: This exception should not be made.
-        if (cmd != 'stratus-ovf'):
-            execute([cmd, "--version"])
+        execute([cmd, "--version"])
 
     def test_usecase(self):
         for cmd in os.listdir(stratuslabBinDir()):
