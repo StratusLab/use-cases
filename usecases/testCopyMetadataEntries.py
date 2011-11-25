@@ -30,8 +30,8 @@ class testCopyMetadataEntries(unittest.TestCase):
     primaryMarketplaceUrl = 'http://marketplace.stratuslab.eu/metadata/'
     entriesToCopy = [
         'LwcRbwCalYSysY1wftQdAj6Bwoi/airaj@lal.in2p3.fr', # ttylinux
-        'OWojA0YDjya7Uhzf7fDRulB3pz3/Konstantin.Skaburskas@cern.ch', # ubuntu
-        'F_f_Kf97uAYrvcji6jbXjpVOYW4/Konstantin.Skaburskas@cern.ch' # centos
+        'BXSSv_2udGkpKgi6fcCaVniz1Zd/Konstantin.Skaburskas@cern.ch', # ubuntu
+        'GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr' # centos
         ]
 
     def writeTempFile(self, contents):
