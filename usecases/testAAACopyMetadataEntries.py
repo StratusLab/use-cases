@@ -25,7 +25,7 @@ except ImportError:
                 except ImportError:
                     raise Exception("Failed to import ElementTree from any known place")
 
-class testCopyMetadataEntries(unittest.TestCase):
+class testAAACopyMetadataEntries(unittest.TestCase):
 
     primaryMarketplaceUrl = 'http://marketplace.stratuslab.eu/metadata/'
     entriesToCopy = [
@@ -88,4 +88,4 @@ class testCopyMetadataEntries(unittest.TestCase):
             os.remove(filename)
 
 def suite():
-    return unittest.TestLoader().loadTestsFromTestCase(testCopyMetadataEntries)
+    return unittest.TestLoader().loadTestsFromTestCase(testAAACopyMetadataEntries)
