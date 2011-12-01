@@ -92,7 +92,7 @@ def stratusKillInstance(vmId):
         execute(["stratus-kill-instance", str(vmId)])
 
 def getVmState(vmId):
-    return stratusDescribeInstance(vmId).split('\n')[1].split(' ')[1]
+    return stratusDescribeInstance(vmId).split('\n')[1].strip().split(' ')[1]
 
 def waitVmRunningOrTimeout(vmId, timeout=(3*60), sleepInterval=5): 
     start = time.time()
