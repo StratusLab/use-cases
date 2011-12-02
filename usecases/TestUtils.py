@@ -2,6 +2,7 @@
 import os
 import os.path
 import random
+import re
 import subprocess
 import sys
 import tempfile
@@ -92,7 +93,12 @@ def stratusKillInstance(vmId):
         execute(["stratus-kill-instance", str(vmId)])
 
 def getVmState(vmId):
-    return stratusDescribeInstance(vmId).split('\n')[1].strip().split(' ')[1]
+    return _extractState(stratusDescribeInstance(vmId).split('\n'))
+
+def _extractState(line):
+    trimmed = line.strip()
+    fields = re.split('\s+', trimmed)
+    return fields[1]
 
 def waitVmRunningOrTimeout(vmId, timeout=(3*60), sleepInterval=5): 
     start = time.time()
