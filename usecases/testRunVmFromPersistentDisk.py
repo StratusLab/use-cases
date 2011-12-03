@@ -10,7 +10,7 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
     ttylinux_url = 'http://appliances.stratuslab.eu/images/base/ttylinux-9.7-i486-base/1.3/ttylinux-9.7-i486-base-1.3.img.gz'
 
     # minimal ubuntu image
-    marketplaceId = 'OWojA0YDjya7Uhzf7fDRulB3pz3'
+    marketplaceId = 'BXSSv_2udGkpKgi6fcCaVniz1Zd'
 
     vm_id = None
     vm_id_ttylinux = None
