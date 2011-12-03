@@ -112,8 +112,12 @@ def waitVmRunningOrTimeout(vmId, timeout=(3*60), sleepInterval=5):
         state = getVmState(vmId)
         print "\tStatus of VM '%s' is  '%s'" % (vmId, state)
         if state == 'Failed':
-            break
+            raise Exception('VM (%s) failed to start' % vmId)
         time.sleep(sleepInterval)
+
+    if state != 'Running':
+        raise Exception('VM (%s) timed out' % vmId)
+
     return state
 
 def stratusCreateVolume(size=1, tag='test-disk'):
