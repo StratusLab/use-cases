@@ -31,7 +31,7 @@ class testAAACopyMetadataEntries(unittest.TestCase):
     entriesToCopy = [
         'LwcRbwCalYSysY1wftQdAj6Bwoi/airaj@lal.in2p3.fr', # ttylinux
         'BXSSv_2udGkpKgi6fcCaVniz1Zd/Konstantin.Skaburskas@cern.ch', # ubuntu
-        'GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr' # centos
+        # 'GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr' # centos, ignored for now
         ]
 
     def writeTempFile(self, contents):
