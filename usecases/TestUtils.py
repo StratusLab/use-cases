@@ -94,7 +94,7 @@ def stratusKillInstance(vmId):
 
 def getVmState(vmId):
     lines = stratusDescribeInstance(vmId).split('\n')
-    if len(lines) == 2:
+    if len(lines) < 2:
         return _extractState(lines[1])
     else:
         raise Exception('wrong number of lines (%d) from stratus-describe-instance' % len(lines))
