@@ -104,7 +104,7 @@ def _extractState(line):
     fields = re.split('\s+', trimmed)
     return fields[1]
 
-def waitVmRunningOrTimeout(vmId, timeout=(3*60), sleepInterval=5): 
+def waitVmRunningOrTimeout(vmId, timeout=(2*60), sleepInterval=5): 
     start = time.time()
     printStep('Started waiting for VM to be up at: %s' % start)
     state = ''
@@ -211,12 +211,12 @@ def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
 def ssh(ip='localhost', cmd='/bin/true', user='root'):
     ssh_id = "%s@%s" % (user, ip)
     ssh_cmd = ['ssh', ssh_id, '-t', '-t', '-q', 
-               '-o', 'ConnectTimeout=10', 
+               '-o', 'ConnectTimeout=5', 
                '-o', 'StrictHostKeyChecking=false', 
                cmd]
     execute(ssh_cmd)
 
-def sshConnectionOrTimeout(ip='localhost', user='root', timeout=(3*60), sleepInterval=5):
+def sshConnectionOrTimeout(ip='localhost', user='root', timeout=(2*60), sleepInterval=5):
     start = time.time()
     printStep('Started trying to SSH to VM: %s' % start)
     while ((time.time() - start) < timeout):
