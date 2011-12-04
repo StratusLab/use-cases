@@ -182,7 +182,6 @@ def closeFileDescriptorReliably(file_descriptor):
 
 def stratusBuildMetadata(image):
     execute(["stratus-build-metadata",
-             "-vvv",
              "--author=Alice Smith",
              "--os=dummyos", 
              "--os-version=0.0", 
@@ -194,7 +193,7 @@ def expectedMetadataFilename():
     return "%s-%s-%s-base-%s.xml" % ("dummyos", "0.0", "i686", "1.0")
 
 def stratusSignMetadata(image):
-    execute(["stratus-sign-metadata", "-vvv", image]) 
+    execute(["stratus-sign-metadata", image]) 
 
 def stratusValidateMetadata(metadata):
     execute(["stratus-validate-metadata", "-vvv", metadata])
@@ -204,7 +203,6 @@ def stratusUploadMetadata(metadata):
 
 def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
     return execute(["stratus-deprecate-metadata", 
-                    "-vvv", 
                     "--email", email,
                     "--reason", reason,
                     identifier
