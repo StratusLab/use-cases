@@ -8,7 +8,7 @@ nosetests --with-xunit \
   usecases.testClientVersionOption \
   usecases.testMetadataSignAndValidate \
   usecases.testMetadataUploadAndDeprecate \
-  usecases.testVmIsAccessibleViaSsh 
+  usecases.testVmIsAccessibleViaSsh \
   usecases.testPersistentDiskRetainsData \
   usecases.testRunVmFromPersistentDisk \
   usecases.testVmStateNotification
