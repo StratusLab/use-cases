@@ -210,7 +210,7 @@ def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
 
 def ssh(ip='localhost', cmd='/bin/true', user='root'):
     ssh_id = "%s@%s" % (user, ip)
-    ssh_cmd = ['ssh', ssh_id, '-t', '-t', '-q', 
+    ssh_cmd = ['ssh', ssh_id, '-q', 
                '-o', 'ConnectTimeout=5', 
                '-o', 'StrictHostKeyChecking=false', 
                cmd]
