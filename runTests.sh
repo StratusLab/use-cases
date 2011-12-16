@@ -3,6 +3,7 @@
 nosetests --with-xunit \
   usecases.testAAACopyMetadataEntries \
   usecases.testBasicPersistentDiskLifecycle \
+  usecases.testBasicPersistentDiskLifecycleWithTag \
   usecases.testBasicVmLifecycle \
   usecases.testClientHelpOption \
   usecases.testClientVersionOption \
