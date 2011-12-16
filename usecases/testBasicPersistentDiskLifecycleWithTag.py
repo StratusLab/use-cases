@@ -6,7 +6,7 @@ from usecases.TestUtils import *
 class testBasicPersistentDiskLifecycle(unittest.TestCase):
 
     diskSize = 1 # in gigabytes
-    tag = '"tag \' with } very $ dangerous \\" characters"'
+    tag = '"tag\'with}very$dangerous\\"characters"'
 
     def setUp(self):
         self.uuid = stratusCreateVolume(self.diskSize, self.tag)
