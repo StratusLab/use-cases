@@ -31,6 +31,7 @@ class testAAACopyMetadataEntries(unittest.TestCase):
     entriesToCopy = [
         'PvitUfM-uW2yWakWUNmd-TSPOiy/airaj@lal.in2p3.fr', # ttylinux
         'BXSSv_2udGkpKgi6fcCaVniz1Zd/Konstantin.Skaburskas@cern.ch', # ubuntu
+        'Kl8l9e3u1jZz7-KS8OHxQesrQQj/loomis@lal.in2p3.fr', # CernVM batch node
         # 'GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr' # centos, ignored for now
         ]
 
