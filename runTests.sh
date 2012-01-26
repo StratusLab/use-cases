@@ -1,6 +1,6 @@
 #!/bin/sh
 
-nosetests --with-xunit \
+nosetests -v --with-xunit \
   usecases.testAAACopyMetadataEntries \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
