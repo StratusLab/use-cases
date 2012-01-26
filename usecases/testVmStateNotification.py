@@ -11,7 +11,7 @@ from usecases.TestUtils import *
 class testVmStateNotification(unittest.TestCase):
 
     # minimal ttylinux image
-    marketplaceId = 'LwcRbwCalYSysY1wftQdAj6Bwoi'
+    marketplaceId = 'PvitUfM-uW2yWakWUNmd-TSPOiy'
 
     vm_id = None
     vm_ip = None

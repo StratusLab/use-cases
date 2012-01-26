@@ -6,7 +6,7 @@ from usecases.TestUtils import *
 class testVmIsAccessibleViaSsh(unittest.TestCase):
 
     # minimal ttylinux image
-    marketplaceId = 'LwcRbwCalYSysY1wftQdAj6Bwoi'
+    marketplaceId = 'PvitUfM-uW2yWakWUNmd-TSPOiy'
 
     def setUp(self):
         self.vm_id, self.vm_ip = stratusRunInstance(self.marketplaceId)
