@@ -12,7 +12,5 @@ nosetests -v --with-xunit \
   usecases.testVmIsAccessibleViaSsh \
   usecases.testCernVmIsAccessibleViaSsh \
   usecases.testPersistentDiskRetainsData \
-  usecases.testVmStateNotification
-
-# Removed because of unknown hang.
-#  usecases.testRunVmFromPersistentDisk \
+  usecases.testVmStateNotification \
+  usecases.testRunVmFromPersistentDisk
