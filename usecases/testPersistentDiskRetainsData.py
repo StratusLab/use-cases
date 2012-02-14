@@ -23,8 +23,8 @@ class testPersistentDiskRetainsData(unittest.TestCase):
         stratusDeleteVolume(self.uuid)
 
     def test_usecase(self):
-        waitVmRunningOrTimeout(self.vm_id_1, timeout=(6*60))
-        waitVmRunningOrTimeout(self.vm_id_2, timeout=(6*60))
+        waitVmRunningOrTimeout(self.vm_id_1, timeout=(10*60))
+        waitVmRunningOrTimeout(self.vm_id_2, timeout=(10*60))
         sshConnectionOrTimeout(self.vm_ip_1)
         sshConnectionOrTimeout(self.vm_ip_2)
 

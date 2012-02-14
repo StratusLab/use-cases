@@ -15,7 +15,7 @@ class testVmIsAccessibleViaSsh(unittest.TestCase):
         stratusKillInstance(self.vm_id)
 
     def test_usecase(self):
-        waitVmRunningOrTimeout(self.vm_id)
+        waitVmRunningOrTimeout(self.vm_id, timeout=(10*60))
         sshConnectionOrTimeout(self.vm_ip)
 
 def suite():
