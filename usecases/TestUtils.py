@@ -76,7 +76,7 @@ def printCmd(msg):
     printAndFlush('  [Executing] %s\n' % msg)
 
 def stratusRunInstance(image, persistentDisk=None, options=None):
-    cmd = ["stratus-run-instance", "--quiet", image]
+    cmd = ["stratus-run-instance", "--quiet", "--type", "m1.xlarge", image]
     if persistentDisk:
         cmd.extend(["--persistent-disk", persistentDisk ])
     if options:
