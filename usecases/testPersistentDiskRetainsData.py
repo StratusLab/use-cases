@@ -48,6 +48,7 @@ class testPersistentDiskRetainsData(unittest.TestCase):
 
         # Attach disk to second machine and ensure data file exists.
         stratusAttachVolume(self.vm_id_2, self.uuid)        
+        time.sleep(5)
         ssh(ip=self.vm_ip_2, cmd='mkdir -p /mnt/pdisk')
         ssh(ip=self.vm_ip_2, cmd='mount -t ext3 /dev/vda /mnt/pdisk')
         ssh(ip=self.vm_ip_2, cmd='ls -l /mnt/pdisk/data_file')
