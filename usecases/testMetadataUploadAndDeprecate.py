@@ -66,7 +66,7 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
         # Strip leading and trailing whitespace.  They do not affect the
         # validity of the XML signature and these are often added/removed
         # in the various stages of processing.
-        originalXml = orignalXml.strip(originalXml)
+        originalXml = originalXml.strip(originalXml)
         marketplaceXml = marketplaceXml.strip(marketplaceXml)
 
         self.assertEqual(originalXml, marketplaceXml, 
