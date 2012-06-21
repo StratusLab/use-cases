@@ -6,7 +6,7 @@ from usecases.TestUtils import *
 class testVmIsAccessibleViaSsh(unittest.TestCase):
 
     # unmodified CernVM batch mode
-    marketplaceId = 'Kl8l9e3u1jZz7-KS8OHxQesrQQj'
+    marketplaceId = 'HNfftwl2c-DkCVJW8eLUXETtarB'
 
     def setUp(self):
         self.vm_id, self.vm_ip = stratusRunInstance(self.marketplaceId)

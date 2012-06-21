@@ -7,7 +7,7 @@ from usecases.TestUtils import *
 class testPersistentDiskRetainsData(unittest.TestCase):
 
     # minimal ubuntu image
-    marketplaceId = 'BXSSv_2udGkpKgi6fcCaVniz1Zd'
+    marketplaceId = 'HZTKYZgX7XzSokCHMB60lS0wsiv'
 
     diskSize = 1
 
