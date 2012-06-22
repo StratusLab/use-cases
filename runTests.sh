@@ -11,6 +11,7 @@ nosetests -v --with-xunit \
   usecases.testMetadataUploadAndDeprecate \
   usecases.testVmIsAccessibleViaSsh \
   usecases.testCernVmIsAccessibleViaSsh \
+  usecases.testAttachAndDetachDisk \
   usecases.testPersistentDiskRetainsData \
   usecases.testVmStateNotification \
   usecases.testRunVmFromPersistentDisk
