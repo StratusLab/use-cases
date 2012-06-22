@@ -6,7 +6,7 @@ from usecases.TestUtils import *
 class testBasicVmLifecycle(unittest.TestCase):
 
     # minimal ttylinux image
-    marketplaceId = 'PvitUfM-uW2yWakWUNmd-TSPOiy'
+    marketplaceId = 'BN1EEkPiBx87_uLj2-sdybSI-Xb'
 
     def setUp(self):
         self.vm_id, self.vm_ip = stratusRunInstance(self.marketplaceId)

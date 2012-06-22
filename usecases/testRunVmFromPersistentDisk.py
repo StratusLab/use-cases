@@ -29,7 +29,7 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
 
     def test_usecase(self):
         waitVmRunningOrTimeout(self.vm_id)
-        sshConnectionOrTimeout(self.vm_ip)
+        sshConnectionOrTimeout(self.vm_ip, timeout=(4*60))
 
         # Ensure kernel module is available for dynamic disk attachment
         ssh(ip=self.vm_ip, cmd='modprobe acpiphp')

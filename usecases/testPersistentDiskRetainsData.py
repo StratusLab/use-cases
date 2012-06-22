@@ -23,10 +23,10 @@ class testPersistentDiskRetainsData(unittest.TestCase):
         stratusDeleteVolume(self.uuid)
 
     def test_usecase(self):
-        waitVmRunningOrTimeout(self.vm_id_1, timeout=(10*60))
-        waitVmRunningOrTimeout(self.vm_id_2, timeout=(10*60))
-        sshConnectionOrTimeout(self.vm_ip_1)
-        sshConnectionOrTimeout(self.vm_ip_2)
+        waitVmRunningOrTimeout(self.vm_id_1, timeout=(5*60))
+        waitVmRunningOrTimeout(self.vm_id_2, timeout=(5*60))
+        sshConnectionOrTimeout(self.vm_ip_1, timeout=(4*60))
+        sshConnectionOrTimeout(self.vm_ip_2, timeout=(4*60))
 
         # Ensure kernel module is available for dynamic disk attachment
         ssh(ip=self.vm_ip_1, cmd='modprobe acpiphp')
