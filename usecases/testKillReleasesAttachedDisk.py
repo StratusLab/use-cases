@@ -4,7 +4,7 @@ import os, os.path
 
 from usecases.TestUtils import *
 
-class testAttachAndDetachDisk(unittest.TestCase):
+class testKillReleasesAttachedDisk(unittest.TestCase):
 
     # minimal ubuntu image
     marketplaceId = 'HZTKYZgX7XzSokCHMB60lS0wsiv'
@@ -18,6 +18,8 @@ class testAttachAndDetachDisk(unittest.TestCase):
     def tearDown(self):
         stratusKillInstance(self.vm_id_1)
         time.sleep(5)
+        stratusDetachVolume(self.vm_id_1, self.uuid)
+        time.sleep(5)
         stratusDeleteVolume(self.uuid)
 
     def test_usecase(self):
@@ -27,11 +29,20 @@ class testAttachAndDetachDisk(unittest.TestCase):
         # Ensure kernel module is available for dynamic disk attachment
         ssh(ip=self.vm_ip_1, cmd='modprobe acpiphp')
 
-        # Attach and detach disk from machine.
+        # Attach disk to machine.
         stratusAttachVolume(self.vm_id_1, self.uuid)
         time.sleep(5)
-        stratusDetachVolume(self.vm_id_1, self.uuid)
+
+        # Ensure that disk is visible in the machine.
+        ssh(ip=self.vm_ip_1, cmd='cat /proc/partitions')
+        ssh(ip=self.vm_ip_1, cmd='grep vda /proc/partitions')
+
+        # Kill the machine.
+        stratusKillInstance(self.vm_id_1)
         time.sleep(5)
+
+        # Now delete the volume.  This is possible only if all of the mounts are removed.
+        stratusDeleteVolume(self.uuid)
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testPersistentDiskRetainsData)
