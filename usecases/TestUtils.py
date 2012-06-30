@@ -9,6 +9,29 @@ import tempfile
 import time
 import urllib2
 
+vm_image_info = {
+    'ttylinux', {
+        'id', 'BN1EEkPiBx87_uLj2-sdybSI-Xb',
+        'email', 'airaj@lal.in2p3.fr',
+        'url', 'http://appliances.stratuslab.eu/images/base/ttylinux-14.0-x86_64-base/1.0/ttylinux-14.0-x86_64-base-1.0.img.gz'
+        },
+    'ubuntu', {
+        'id', 'HZTKYZgX7XzSokCHMB60lS0wsiv',
+        'email', 'hudson.builder@stratuslab.eu',
+        },
+    'cernvm', {
+        'id', 'HNfftwl2c-DkCVJW8eLUXETtarB',
+        'email', 'loomis@lal.in2p3.fr',
+        }, 
+    'centos', {
+        'id', 'GQgEmeu7aV2NRaGyAr6FEL3qRET',
+        'email', 'airaj@lal.in2p3.fr',
+        }
+    }
+
+def getVmImageInfo():
+    return vm_image_info
+
 def readRemoteFile(url):
     fd = wget(url)
     return fd.read()

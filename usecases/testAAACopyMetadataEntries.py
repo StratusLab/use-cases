@@ -28,12 +28,13 @@ except ImportError:
 class testAAACopyMetadataEntries(unittest.TestCase):
 
     primaryMarketplaceUrl = 'http://marketplace.stratuslab.eu/metadata/'
-    entriesToCopy = [
-        'BN1EEkPiBx87_uLj2-sdybSI-Xb/airaj@lal.in2p3.fr', # ttylinux
-        'HZTKYZgX7XzSokCHMB60lS0wsiv/hudson.builder@stratuslab.eu', # ubuntu
-        'HNfftwl2c-DkCVJW8eLUXETtarB/loomis@lal.in2p3.fr', # CernVM batch node
-        # 'GQgEmeu7aV2NRaGyAr6FEL3qRET/airaj@lal.in2p3.fr' # centos, ignored for now
-        ]
+
+    entriesToCopy = []
+    for vm_name, info in getVmImageInfo().items():
+        id = info['id']
+        email = info['email']
+        marketplace_id = "%s/%s" % (id, email)
+        entriesToCopy.append(marketplace_id)
 
     def writeTempFile(self, contents):
         file_descriptor, filename = tempfile.mkstemp()

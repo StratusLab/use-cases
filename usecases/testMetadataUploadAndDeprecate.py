@@ -8,19 +8,19 @@ try:
     from lxml import etree
 except ImportError:
     try:
-        # Python 2.5                                                                                  
+        # Python 2.5
         import xml.etree.cElementTree as etree
     except ImportError:
         try:
-            # Python 2.5                                                                              
+            # Python 2.5
             import xml.etree.ElementTree as etree
         except ImportError:
             try:
-                # normal cElementTree install                                                         
+                # normal cElementTree install
                 import cElementTree as etree
             except ImportError:
                 try:
-                    # normal ElementTree install                                                      
+                    # normal ElementTree install
                     import elementtree.ElementTree as etree
                 except ImportError:
                     raise Exception("Failed to import ElementTree from any known place")

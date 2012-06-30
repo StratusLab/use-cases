@@ -6,11 +6,9 @@ from usecases.TestUtils import *
 
 class testRunVmFromPersistentDisk(unittest.TestCase):
 
-    # minimal ttylinux image
-    ttylinux_url = 'http://appliances.stratuslab.eu/images/base/ttylinux-14.0-x86_64-base/1.0/ttylinux-14.0-x86_64-base-1.0.img.gz'
-
-    # minimal ubuntu image
-    marketplaceId = 'HZTKYZgX7XzSokCHMB60lS0wsiv'
+    vm_image_info = getVmImageInfo()
+    ttylinux_url = vm_image_info['ttylinux']['url']
+    marketplaceId = vm_image_info['ubuntu']['id']
 
     vm_id = None
     vm_id_ttylinux = None

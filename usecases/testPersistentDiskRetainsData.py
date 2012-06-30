@@ -6,8 +6,8 @@ from usecases.TestUtils import *
 
 class testPersistentDiskRetainsData(unittest.TestCase):
 
-    # minimal ubuntu image
-    marketplaceId = 'HZTKYZgX7XzSokCHMB60lS0wsiv'
+    vm_image_info = getVmImageInfo()
+    marketplaceId = vm_image_info['ubuntu']['id']
 
     diskSize = 1
 
