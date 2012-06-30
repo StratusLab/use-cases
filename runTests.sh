@@ -8,7 +8,10 @@ nosetests -v --with-xunit \
   usecases.testMetadataUploadAndDeprecate \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
-  usecases.testBasicVmLifecycle \
+  usecases.testBasicVmLifecycleTtylinux \
+  usecases.testBasicVmLifecycleUbuntu \
+  usecases.testBasicVmLifecycleCentOS \
+  usecases.testBasicVmLifecycleCernVM \
   usecases.testVmIsAccessibleViaSsh \
   usecases.testVmStateNotification \
   usecases.testCernVmIsAccessibleViaSsh \
