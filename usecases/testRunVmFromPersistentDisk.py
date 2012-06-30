@@ -37,7 +37,7 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
 
         # Copy ttylinux image onto persistent disk
         ssh(ip=self.vm_ip, cmd='apt-get install -y curl')
-        ssh(ip=self.vm_ip, cmd='fdisk -l')
+        ssh(ip=self.vm_ip, cmd='cat /proc/partitions')
         ssh(ip=self.vm_ip, cmd='curl -o /tmp/ttylinux.img.gz %s' % self.ttylinux_url)
         ssh(ip=self.vm_ip, cmd='gunzip /tmp/ttylinux.img.gz')
         ssh(ip=self.vm_ip, cmd='dd if=/tmp/ttylinux.img of=/dev/vda')

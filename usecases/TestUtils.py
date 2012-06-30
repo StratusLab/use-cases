@@ -168,7 +168,7 @@ def stratusDetachVolume(vmId, uuid):
 def stratusUpdateVolume(uuid, options=[]):
     cmd = ['stratus-update-volume']
     for option in options:
-        cmd.append(options)
+        cmd.append(option)
     cmd.append(uuid)
     return execute(cmd)
 
