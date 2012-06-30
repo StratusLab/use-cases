@@ -8,19 +8,19 @@ try:
     from lxml import etree
 except ImportError:
     try:
-        # Python 2.5                                                                                  
+        # Python 2.5
         import xml.etree.cElementTree as etree
     except ImportError:
         try:
-            # Python 2.5                                                                              
+            # Python 2.5
             import xml.etree.ElementTree as etree
         except ImportError:
             try:
-                # normal cElementTree install                                                         
+                # normal cElementTree install
                 import cElementTree as etree
             except ImportError:
                 try:
-                    # normal ElementTree install                                                      
+                    # normal ElementTree install
                     import elementtree.ElementTree as etree
                 except ImportError:
                     raise Exception("Failed to import ElementTree from any known place")
@@ -29,12 +29,14 @@ class testAAACopyMetadataEntries(unittest.TestCase):
 
     primaryMarketplaceUrl = 'http://marketplace.stratuslab.eu/metadata/'
 
-    entriesToCopy = []
-    for vm_name, info in getVmImageInfo().items():
-        id = info['id']
-        email = info['email']
-        marketplace_id = "%s/%s" % (id, email)
-        entriesToCopy.append(marketplace_id)
+    def getEntriesToCopy(self):
+        entriesToCopy = []
+        for vm_name, info in getVmImageInfo().items():
+            id = info['id']
+            email = info['email']
+            marketplace_id = "%s/%s" % (id, email)
+            entriesToCopy.append(marketplace_id)
+        return entriesToCopy
 
     def writeTempFile(self, contents):
         file_descriptor, filename = tempfile.mkstemp()
@@ -55,7 +57,7 @@ class testAAACopyMetadataEntries(unittest.TestCase):
 
     def test_usecase(self):
 
-        for entry in self.entriesToCopy:
+        for entry in self.getEntriesToCopy():
 
             # Contents are wrapped in a metadata root element. 
             # Be sure to remove this element during the processing.
