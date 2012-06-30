@@ -165,6 +165,13 @@ def stratusAttachVolume(vmId, uuid):
 def stratusDetachVolume(vmId, uuid):
     return execute(["stratus-detach-volume", "-i", str(vmId), uuid])
 
+def stratusUpdateVolume(uuid, options=[]):
+    cmd = ['stratus-update-volume']
+    for option in options:
+        cmd.append(options)
+    cmd.append(uuid)
+    return execute(cmd)
+
 def createDummyImage(digits=1024):
     file_descriptor, filename = tempfile.mkstemp()
 

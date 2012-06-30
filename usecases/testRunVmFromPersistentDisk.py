@@ -46,6 +46,9 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
         stratusDetachVolume(self.vm_id, self.uuid)
         time.sleep(5)
 
+        # Mark this as a live machine image.
+        stratusUpdateVolume(self.uuid, ['--machine-image-live'])
+
         # Run ttylinux from persistent disk
         self.vm_id_ttylinux, self.vm_ip_ttylinux = stratusRunInstance(self.uuid)
         waitVmRunningOrTimeout(self.vm_id_ttylinux)
