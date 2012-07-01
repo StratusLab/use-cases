@@ -45,4 +45,4 @@ class testKillReleasesAttachedDisk(unittest.TestCase):
         stratusDeleteVolume(self.uuid)
 
 def suite():
-    return unittest.TestLoader().loadTestsFromTestCase(testPersistentDiskRetainsData)
+    return unittest.TestLoader().loadTestsFromTestCase(testKillReleasesAttachedDisk)
