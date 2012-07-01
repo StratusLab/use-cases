@@ -16,11 +16,15 @@ class testKillReleasesAttachedDisk(unittest.TestCase):
         self.vm_id_1, self.vm_ip_1 = stratusRunInstance(self.marketplaceId)
 
     def tearDown(self):
-        stratusKillInstance(self.vm_id_1)
-        time.sleep(5)
-        stratusDetachVolume(self.vm_id_1, self.uuid)
-        time.sleep(5)
-        stratusDeleteVolume(self.uuid)
+        try:
+            stratusKillInstance(self.vm_id_1)
+            time.sleep(5)
+            if self.uuid:
+                stratusDetachVolume(self.vm_id_1, self.uuid)
+                time.sleep(5)
+                stratusDeleteVolume(self.uuid)
+        except:
+            pass
 
     def test_usecase(self):
         waitVmRunningOrTimeout(self.vm_id_1, timeout=(5*60))
