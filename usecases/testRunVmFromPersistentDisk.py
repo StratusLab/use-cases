@@ -52,6 +52,10 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
         waitVmRunningOrTimeout(self.vm_id_ttylinux)
         sshConnectionOrTimeout(self.vm_ip_ttylinux)
 
+        # Kill the instance; sleep to be sure the clean up is done.
+        stratusKillInstance(self.vm_id_ttylinux)
+        time.sleep(5)
+
         # Delete the volume to be sure it still belongs to us. 
         stratusDeleteVolume(self.uuid)
 

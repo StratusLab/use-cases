@@ -15,7 +15,9 @@ class testBasicVmLifecycle(unittest.TestCase):
         stratusKillInstance(self.vm_id)
 
     def test_usecase(self):
-        waitVmRunningOrTimeout(self.vm_id, timeout=(10*60))
+        # Use an excessively long timeout because the download from
+        # CERN can be incredibly slow. 
+        waitVmRunningOrTimeout(self.vm_id, timeout=(15*60))
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)

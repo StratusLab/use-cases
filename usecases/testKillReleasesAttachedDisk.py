@@ -44,5 +44,8 @@ class testKillReleasesAttachedDisk(unittest.TestCase):
         # Now delete the volume.  This is possible only if all of the mounts are removed.
         stratusDeleteVolume(self.uuid)
 
+        # If the delete worked, then unset the UUID so the tear down doesn't fail.
+        self.uuid = None
+
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testKillReleasesAttachedDisk)
