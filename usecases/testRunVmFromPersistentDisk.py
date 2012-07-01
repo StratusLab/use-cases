@@ -22,8 +22,6 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
     def tearDown(self):
         stratusKillInstance(self.vm_id)
         stratusKillInstance(self.vm_id_ttylinux)
-        time.sleep(5)
-        stratusDeleteVolume(self.uuid)
 
     def test_usecase(self):
         waitVmRunningOrTimeout(self.vm_id)
@@ -53,6 +51,9 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
         self.vm_id_ttylinux, self.vm_ip_ttylinux = stratusRunInstance(self.uuid)
         waitVmRunningOrTimeout(self.vm_id_ttylinux)
         sshConnectionOrTimeout(self.vm_ip_ttylinux)
+
+        # Delete the volume to be sure it still belongs to us. 
+        stratusDeleteVolume(self.uuid)
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testRunVmFromPersistentDisk)
