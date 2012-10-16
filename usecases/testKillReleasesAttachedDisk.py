@@ -43,7 +43,7 @@ class testKillReleasesAttachedDisk(unittest.TestCase):
 
         # Kill the machine.
         stratusKillInstance(self.vm_id_1)
-        time.sleep(5)
+        time.sleep(15)
 
         # Now delete the volume.  This is possible only if all of the mounts are removed.
         stratusDeleteVolume(self.uuid)

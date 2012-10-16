@@ -15,7 +15,7 @@ class testBasicVmLifecycle(unittest.TestCase):
         stratusKillInstance(self.vm_id)
 
     def test_usecase(self):
-        waitVmRunningOrTimeout(self.vm_id, timeout=(10*60))
+        waitVmRunningOrTimeout(self.vm_id, timeout=(15*60))
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)
