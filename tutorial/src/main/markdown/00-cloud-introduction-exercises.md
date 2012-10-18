@@ -3,6 +3,7 @@ Exercises: Your Needs and Interests
 ===================================
 
 Researchers and Engineers (End-users)
+
   * Use existing academic and/or commercial software on the cloud 
   * What scientific domains?
 
