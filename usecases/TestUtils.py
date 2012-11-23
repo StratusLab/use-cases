@@ -17,7 +17,7 @@ vm_image_info = {
         },
     'ubuntu': {
         'id': 'HZTKYZgX7XzSokCHMB60lS0wsiv',
-        'email': 'hudson.builder@stratuslab.eu',
+        'email': 'Konstantin.Skaburskas@cern.ch',
         },
     'cernvm': {
         'id': 'HNfftwl2c-DkCVJW8eLUXETtarB',
