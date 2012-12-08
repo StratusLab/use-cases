@@ -1,9 +1,11 @@
 
+import httplib2
 import os
 import os.path
 import random
 import re
 import subprocess
+import StringIO
 import sys
 import tempfile
 import time
@@ -99,7 +101,7 @@ def printCmd(msg):
     printAndFlush('  [Executing] %s\n' % msg)
 
 def stratusRunInstance(image, persistentDisk=None, options=None):
-    cmd = ["stratus-run-instance", "--quiet", 
+    cmd = ["stratus-run-instance", "--quiet", "--no-check-image-url", 
            "--cpu", "2", "--ram", "2048", "--swap", "2048", 
            image]
     if persistentDisk:
@@ -107,11 +109,14 @@ def stratusRunInstance(image, persistentDisk=None, options=None):
     if options:
         cmd.extend(options)
     response = execute(cmd)
-    vm_id, vm_ip = response.split(', ')
-    return (vm_id.strip(), vm_ip.strip())
+    return extractIdAndIp(response)
 
 def stratusDescribeInstance(vmId):
     return execute(["stratus-describe-instance", str(vmId)])
+
+def stratusShutdownInstance(vmId):
+    printStep('Shutting down instance: %s' % str(vmId))
+    return execute(["stratus-shutdown-instance", str(vmId)])
 
 def stratusKillInstance(vmId):
     if vmId:
@@ -157,6 +162,11 @@ def stratusDescribeVolumes(uuid=None):
     cmd = ["stratus-describe-volumes"]
     if uuid:
         cmd.append(uuid)
+    return execute(cmd)
+
+def stratusDescribeVolumesWithFilter(tag='dummy'):
+    filter = "--filter=tag:%s" % tag
+    cmd = ["stratus-describe-volumes", filter]
     return execute(cmd)
 
 def stratusAttachVolume(vmId, uuid):
@@ -239,6 +249,72 @@ def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
                     "--reason", reason,
                     identifier
                     ])
+
+
+def findImageDiskOrTimeout(tag='dummy', timeout=(10*60), sleepInterval=10):
+    start = time.time()
+    printStep('Started trying to find image disk: %s' % start)
+    while ((time.time() - start) < timeout):
+        try:
+            diskinfo = stratusDescribeVolumesWithFilter(tag=tag)            
+            uuid, identifier = extractUuidAndIdentifierFromDisk(diskinfo)
+            printStep('Disk uuid and identifier: %s, %s' % (uuid, identifier))
+            return (uuid, identifier)
+        except Exception as e:
+            time.sleep(sleepInterval)
+    raise Exception('timeout exceeded while trying to find image disk')
+
+
+def getUrlOrTimeout(url, timeout=(5*60), sleepInterval=10):
+    start = time.time()
+    printStep('Started trying to get %s at: %s' % (url, start))
+    while ((time.time() - start) < timeout):
+        try:
+            h = httplib2.Http()
+            resp, content = h.request(url, "GET")
+
+            printStep('Response and content: %s\n%s' % (resp, content))
+            return (resp, content)
+        except Exception as e:
+            printStep('Exception: %s' % e)
+            time.sleep(sleepInterval)
+
+    raise Exception('timeout exceeded while trying to get URL: %s' % url)
+
+
+def extractUuidAndIdentifierFromDisk(diskinfo):
+    uuid = None
+    identifier = None
+    try:
+        f = StringIO.StringIO(diskinfo)
+        for line in f:
+            match = re.match('.*DISK\s+([^\s]+).*', line)
+            if match:
+                uuid = match.group(1)
+            match = re.match('.*identifier:\s+([^\s]+).*', line)
+            if match:
+                identifier = match.group(1)
+    finally:
+        f.close()
+    
+    if (uuid is None):
+        raise Exception("uuid not found") 
+    else:
+        return uuid, identifier
+        
+
+def extractIdAndIp(runinfo):
+    try:
+        f = StringIO.StringIO(runinfo)
+        for line in f:
+            match = re.match('\s*(\d+)\s*,\s*([^\s]+)\s*', line)
+            if match:
+                return (match.group(1), match.group(2))
+    finally:
+        f.close()
+
+    return (None, None)
+        
 
 def ssh(ip='localhost', cmd='/bin/true', user='root'):
     ssh_id = "%s@%s" % (user, ip)
