@@ -98,8 +98,8 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
         try:
             readRemoteFile(grandparent)
         except urllib2.HTTPError as e:
-            self.assertEquals(404, e.code, '%s did not give 404 error but %d instead' % 
-                              (grandparent, e.code))
+            self.assertEqual(404, e.code, '%s did not give 404 error but %d instead' % 
+                             (grandparent, e.code))
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testMetadataUploadAndDeprecate)

@@ -122,6 +122,11 @@ def stratusKillInstance(vmId):
     if vmId:
         execute(["stratus-kill-instance", str(vmId)])
 
+def stratusPrepareContext(args):
+    cmd = ['stratus-prepare-context']
+    cmd.extend(args)
+    return execute(cmd)
+
 def getVmState(vmId):
     lines = stratusDescribeInstance(vmId).split('\n')
     if len(lines) >= 2:
