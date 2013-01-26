@@ -20,5 +20,7 @@ nosetests -v --with-xunit \
   usecases.testPersistentDiskRetainsData \
   usecases.testRunVmFromPersistentDisk \
   usecases.testPrepareContext \
-  usecases.testCloudInitCentOS
+  usecases.testCloudInitCentOS \
+  usecases.testCreateImage
+
 
