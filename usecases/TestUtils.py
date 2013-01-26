@@ -26,7 +26,7 @@ vm_image_info = {
         'email': 'loomis@lal.in2p3.fr',
         }, 
     'centos': {
-        'id': 'Jd3yRF6x4ofxfCeVK6BmCkuHc0m',
+        'id': 'IRei7LKvxoWVRsiiup2cz3-sSsk',
         'email': 'hudson.builder@stratuslab.eu',
         }
     }

@@ -61,7 +61,6 @@ class testPrepareContext(unittest.TestCase):
     def test_usecase(self):
         args = ['ssh,%s' % self.ssh_path,
                 'none,%s' % self.script_path]
-        print args
         stratusPrepareContext(args)
 
         self.assertTrue(os.path.exists(self.CONTEXT_FILE))

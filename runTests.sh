@@ -18,4 +18,7 @@ nosetests -v --with-xunit \
   usecases.testAttachAndDetachDisk \
   usecases.testKillReleasesAttachedDisk \
   usecases.testPersistentDiskRetainsData \
-  usecases.testRunVmFromPersistentDisk
+  usecases.testRunVmFromPersistentDisk \
+  usecases.testPrepareContext \
+  usecases.testCloudInitCentOS
+
