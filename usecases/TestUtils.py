@@ -28,6 +28,10 @@ vm_image_info = {
     'centos': {
         'id': 'IRei7LKvxoWVRsiiup2cz3-sSsk',
         'email': 'hudson.builder@stratuslab.eu',
+        },
+    'data': {
+        'id': 'GPAUQFkojP5dMQJNdJ4qD_62mCo',
+        'email': 'loomis@lal.in2p3.fr',
         }
     }
 
