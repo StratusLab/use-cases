@@ -22,7 +22,7 @@ vm_image_info = {
         'email': 'Konstantin.Skaburskas@cern.ch',
         },
     'cernvm': {
-        'id': 'P319avS1Si5QDZiGf9xUxadOG1u',
+        'id': 'FPG7anShWeLV3mbCD2wZHKIr8CA',
         'email': 'loomis@lal.in2p3.fr',
         }, 
     'centos': {
