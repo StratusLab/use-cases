@@ -250,7 +250,7 @@ def stratusValidateMetadata(metadata):
     execute(["stratus-validate-metadata", "-vvv", metadata])
 
 def stratusUploadMetadata(metadata):
-    return execute(["stratus-upload-metadata", "-vvv", metadata])
+    return execute(["stratus-upload-metadata", metadata])
 
 def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
     return execute(["stratus-deprecate-metadata", 
