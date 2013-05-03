@@ -6,21 +6,22 @@ nosetests -v --with-xunit \
   usecases.testClientVersionOption \
   usecases.testMetadataSignAndValidate \
   usecases.testMetadataUploadAndDeprecate \
+  usecases.testPrepareContext \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
   usecases.testBasicVmLifecycleTtylinux \
-  usecases.testBasicVmLifecycleUbuntu \
-  usecases.testBasicVmLifecycleCentOS \
-  usecases.testBasicVmLifecycleCernVM \
-  usecases.testVmIsAccessibleViaSsh \
-  usecases.testVmStateNotification \
-  usecases.testCernVmIsAccessibleViaSsh \
-  usecases.testAttachAndDetachDisk \
-  usecases.testKillReleasesAttachedDisk \
-  usecases.testPersistentDiskRetainsData \
-  usecases.testRunVmFromPersistentDisk \
-  usecases.testPrepareContext \
-  usecases.testCloudInitCentOS \
-  usecases.testReadonlyDataDisk
+  usecases.testBasicVmLifecycleUbuntu
+
+#  usecases.testBasicVmLifecycleCentOS \
+#  usecases.testBasicVmLifecycleCernVM \
+#  usecases.testVmIsAccessibleViaSsh \
+#  usecases.testVmStateNotification \
+#  usecases.testCernVmIsAccessibleViaSsh \
+#  usecases.testAttachAndDetachDisk \
+#  usecases.testKillReleasesAttachedDisk \
+#  usecases.testPersistentDiskRetainsData \
+#  usecases.testRunVmFromPersistentDisk \
+#  usecases.testCloudInitCentOS \
+#  usecases.testReadonlyDataDisk
 
 
