@@ -11,18 +11,15 @@ nosetests -v --with-xunit \
   usecases.testBasicPersistentDiskLifecycleWithTag \
   usecases.testUploadImage \
   usecases.testBasicVmLifecycleTtylinux \
-  usecases.testBasicVmLifecycleUbuntu
-
-#  usecases.testBasicVmLifecycleCentOS \
-#  usecases.testBasicVmLifecycleCernVM \
-#  usecases.testVmIsAccessibleViaSsh \
-#  usecases.testVmStateNotification \
-#  usecases.testCernVmIsAccessibleViaSsh \
-#  usecases.testAttachAndDetachDisk \
-#  usecases.testKillReleasesAttachedDisk \
-#  usecases.testPersistentDiskRetainsData \
-#  usecases.testRunVmFromPersistentDisk \
-#  usecases.testCloudInitCentOS \
-#  usecases.testReadonlyDataDisk
-
-
+  usecases.testBasicVmLifecycleUbuntu \
+  usecases.testBasicVmLifecycleCentOS \
+  usecases.testBasicVmLifecycleCernVM \
+  usecases.testVmIsAccessibleViaSsh \
+  usecases.testVmStateNotification \
+  usecases.testCernVmIsAccessibleViaSsh \
+  usecases.testAttachAndDetachDisk \
+  usecases.testKillReleasesAttachedDisk \
+  usecases.testPersistentDiskRetainsData \
+  usecases.testRunVmFromPersistentDisk \
+  usecases.testCloudInitCentOS \
+  usecases.testReadonlyDataDisk
