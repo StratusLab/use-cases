@@ -9,10 +9,9 @@ nosetests -v --with-xunit \
   usecases.testPrepareContext \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
-  usecases.testUploadImage
-
-#  usecases.testBasicVmLifecycleTtylinux \
-#  usecases.testBasicVmLifecycleUbuntu
+  usecases.testUploadImage \
+  usecases.testBasicVmLifecycleTtylinux \
+  usecases.testBasicVmLifecycleUbuntu
 
 #  usecases.testBasicVmLifecycleCentOS \
 #  usecases.testBasicVmLifecycleCernVM \
