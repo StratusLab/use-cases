@@ -1,6 +1,7 @@
 #!/bin/sh
 
 nosetests -v --with-xunit \
+
   usecases.testAAACopyMetadataEntries \
   usecases.testClientHelpOption \
   usecases.testClientVersionOption \
@@ -9,8 +10,10 @@ nosetests -v --with-xunit \
   usecases.testPrepareContext \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
-  usecases.testBasicVmLifecycleTtylinux \
-  usecases.testBasicVmLifecycleUbuntu
+  usecases.testUploadImage
+
+#  usecases.testBasicVmLifecycleTtylinux \
+#  usecases.testBasicVmLifecycleUbuntu
 
 #  usecases.testBasicVmLifecycleCentOS \
 #  usecases.testBasicVmLifecycleCernVM \

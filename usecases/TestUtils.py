@@ -260,6 +260,11 @@ def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
                     ])
 
 
+def stratusUploadImage(image):
+    return execute(["stratus-upload-image", 
+                    "--image-only",
+                    image])
+
 def findImageDiskOrTimeout(tag='dummy', timeout=(10*60), sleepInterval=10):
     start = time.time()
     printStep('Started trying to find image disk: %s' % start)
