@@ -18,15 +18,15 @@ vm_image_info = {
         'url': 'http://appliances.stratuslab.eu/images/base/ttylinux-14.0-x86_64-base/1.0/ttylinux-14.0-x86_64-base-1.0.img.gz'
         },
     'ubuntu': {
-        'id': 'HZTKYZgX7XzSokCHMB60lS0wsiv',
-        'email': 'Konstantin.Skaburskas@cern.ch',
+        'id': 'ObFsK5hQ2CPRBvzEBdW8DYB-2G4',
+        'email': 'hudson.builder@stratuslab.eu',
         },
     'cernvm': {
         'id': 'FPG7anShWeLV3mbCD2wZHKIr8CA',
         'email': 'loomis@lal.in2p3.fr',
         }, 
     'centos': {
-        'id': 'IRei7LKvxoWVRsiiup2cz3-sSsk',
+        'id': 'LfjImFaziqhStKNVGQ11OJVJUjw',
         'email': 'hudson.builder@stratuslab.eu',
         },
     'data': {
