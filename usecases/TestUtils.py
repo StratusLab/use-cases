@@ -259,11 +259,15 @@ def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
                     identifier
                     ])
 
-
 def stratusUploadImage(image):
     return execute(["stratus-upload-image", 
                     "--image-only",
                     image])
+
+def stratusDownloadImage(url, filename):
+    return execute(["stratus-download-image", 
+                    "--output", filename,
+                    url])
 
 def findImageDiskOrTimeout(tag='dummy', timeout=(10*60), sleepInterval=10):
     start = time.time()
