@@ -10,7 +10,6 @@ nosetests -v --with-xunit \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
   usecases.testUploadImage \
-  usecases.testDownloadImage \
   usecases.testBasicVmLifecycleTtylinux \
   usecases.testBasicVmLifecycleUbuntu \
   usecases.testBasicVmLifecycleCentOS \
@@ -24,3 +23,6 @@ nosetests -v --with-xunit \
   usecases.testRunVmFromPersistentDisk \
   usecases.testCloudInitCentOS \
   usecases.testReadonlyDataDisk
+
+# After testUploadImage
+#  usecases.testDownloadImage \
