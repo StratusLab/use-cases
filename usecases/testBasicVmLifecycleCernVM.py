@@ -17,7 +17,7 @@ class testBasicVmLifecycle(unittest.TestCase):
     def test_usecase(self):
         # Use an excessively long timeout because the download from
         # CERN can be incredibly slow. 
-        waitVmRunningOrTimeout(self.vm_id, timeout=(15*60))
+        waitVmRunningOrTimeout(self.vm_id, timeout=(20*60))
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)
