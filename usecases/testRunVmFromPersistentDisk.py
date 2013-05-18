@@ -54,7 +54,9 @@ class testRunVmFromPersistentDisk(unittest.TestCase):
 
         # Kill the instance; sleep to be sure the clean up is done.
         stratusKillInstance(self.vm_id_ttylinux)
-        time.sleep(5)
+
+        # Wait for the disk to be unmounted and freed.
+        time.sleep(10)
 
         # Delete the volume to be sure it still belongs to us. 
         stratusDeleteVolume(self.uuid)
