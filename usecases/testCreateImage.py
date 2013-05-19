@@ -44,6 +44,7 @@ class testCreateImage(unittest.TestCase):
         # Do machine configuration.
         ssh(ip=self.vm_ip, cmd='rm -f /lib/udev/rules.d/*net-gen*')
         ssh(ip=self.vm_ip, cmd='rm -f /etc/udev/rules.d/*net.rules')
+        ssh(ip=self.vm_ip, cmd='apt-get update')
         ssh(ip=self.vm_ip, cmd='apt-get install -y apache2 chkconfig')
         ssh(ip=self.vm_ip, cmd='echo cloudy_weather_expected > /var/www/cloud.txt')
 
