@@ -15,7 +15,7 @@ vm_image_info = {
     'ttylinux': {
         'id': 'BN1EEkPiBx87_uLj2-sdybSI-Xb',
         'email': 'airaj@lal.in2p3.fr',
-        'mkplace-uri': 'https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb/airaj@lal.in2p3.fr/2013-01-14T08:06:16Z'
+        'mkplace-uri': 'https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb/airaj@lal.in2p3.fr/2013-01-14T08:06:16Z',
         'url': 'http://appliances.stratuslab.eu/images/base/ttylinux-14.0-x86_64-base/1.0/ttylinux-14.0-x86_64-base-1.0.img.gz'
         },
     'ubuntu': {
