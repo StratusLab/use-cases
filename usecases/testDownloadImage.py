@@ -14,9 +14,9 @@ class testDownloadImage(unittest.TestCase):
         removeFile(self.filename)
 
     def test_usecase(self):
-        ttylinux_url = vm_image_info['ttylinux']['url']
-        print 'Image URL: %s' % ttylinux_url
-        stratusDownloadImage(ttylinux_url, self.filename)
+        mkplace_uri = vm_image_info['ttylinux']['mkplace-uri']
+        print 'Image URL: %s' % mkplace_uri
+        stratusDownloadImage(mkplace_uri, self.filename)
         bytes = os.path.getsize(self.filename)
         print 'Image size: %d' % size
         self.assertTrue(bytes > 0)
