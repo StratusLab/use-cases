@@ -23,4 +23,6 @@ nosetests -v --with-xunit \
   usecases.testCloudInitCentOS \
   usecases.testReadonlyDataDisk \
   usecases.testBasicVmLifecycleCernVM \
-  usecases.testCernVmIsAccessibleViaSsh
+  usecases.testCernVmIsAccessibleViaSsh \
+  usecases.testCreateImage
+
