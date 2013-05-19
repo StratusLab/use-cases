@@ -18,7 +18,7 @@ class testDownloadImage(unittest.TestCase):
         print 'Image URL: %s' % mkplace_uri
         stratusDownloadImage(mkplace_uri, self.filename)
         bytes = os.path.getsize(self.filename)
-        print 'Image size: %d' % size
+        print 'Image size: %d' % bytes
         self.assertTrue(bytes > 0)
 
 def suite():
