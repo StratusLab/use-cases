@@ -26,11 +26,8 @@ class testUploadAndDownloadImage(unittest.TestCase):
         # is identical to the uploaded one, but this requires
         # that the server perserve the exact file size. 
         download_url = "%s?media=gzip" % url
-        try:
-            fd = wget(download_url)
+        with wget(download_url) as fd:
             fd.read(100)
-        finally:
-            fd.close()
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testUploadAndDownloadImage)
