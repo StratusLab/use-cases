@@ -3,7 +3,7 @@ import unittest
 
 from usecases.TestUtils import *
 
-class testDownloadImage(unittest.TestCase):
+class testDownloadImageFromMarketplace(unittest.TestCase):
 
     def setUp(self):
         self.file_descriptor, self.filename = tempfile.mkstemp()
@@ -22,4 +22,4 @@ class testDownloadImage(unittest.TestCase):
         self.assertTrue(bytes > 0)
 
 def suite():
-    return unittest.TestLoader().loadTestsFromTestCase(testDownloadImage)
+    return unittest.TestLoader().loadTestsFromTestCase(testDownloadImageFromMarketplace)
