@@ -261,7 +261,7 @@ def stratusDeprecateMetadata(identifier, email, reason="Just For Fun"):
                     ])
 
 def stratusUploadImage(image):
-    return execute(["stratus-upload-image", 
+    return execute(["stratus-upload-image",
                     "--image-only",
                     image])
 
