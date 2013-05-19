@@ -21,8 +21,6 @@ nosetests -v --with-xunit \
   usecases.testPersistentDiskRetainsData \
   usecases.testRunVmFromPersistentDisk \
   usecases.testCloudInitCentOS \
-  usecases.testReadonlyDataDisk
-
-# Don't run CernVM tests because the image takes too long to download.
-#  usecases.testBasicVmLifecycleCernVM \
-#  usecases.testCernVmIsAccessibleViaSsh
+  usecases.testReadonlyDataDisk \
+  usecases.testBasicVmLifecycleCernVM \
+  usecases.testCernVmIsAccessibleViaSsh
