@@ -9,7 +9,7 @@ nosetests -v --with-xunit \
   usecases.testPrepareContext \
   usecases.testBasicPersistentDiskLifecycle \
   usecases.testBasicPersistentDiskLifecycleWithTag \
-  usecases.testUploadAndDownloadImage \
+  usecases.testUploadImage \
   usecases.testDownloadImageFromMarketplace \
   usecases.testBasicVmLifecycleTtylinux \
   usecases.testBasicVmLifecycleUbuntu \
@@ -25,4 +25,8 @@ nosetests -v --with-xunit \
   usecases.testBasicVmLifecycleCernVM \
   usecases.testCernVmIsAccessibleViaSsh \
   usecases.testCreateImage
+
+# Currently not working because additional work on server is needed.
+# See storage issue #19
+#  usecases.testUploadAndDownloadImage
 
