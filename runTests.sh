@@ -21,10 +21,12 @@ nosetests -v --with-xunit \
   usecases.testPersistentDiskRetainsData \
   usecases.testRunVmFromPersistentDisk \
   usecases.testCloudInitCentOS \
-  usecases.testReadonlyDataDisk \
-  usecases.testBasicVmLifecycleCernVM \
-  usecases.testCernVmIsAccessibleViaSsh \
-  usecases.testCreateImage
+  usecases.testReadonlyDataDisk
+
+# Turn off long tests for now.
+#  usecases.testBasicVmLifecycleCernVM \
+#  usecases.testCernVmIsAccessibleViaSsh \
+#  usecases.testCreateImage
 
 # Currently not working because additional work on server is needed.
 # See storage issue #19
