@@ -54,8 +54,11 @@ class testCreateImage(unittest.TestCase):
         # Ensure that the disk shows up in the storage service.
         self.image_uuid, self.webserver_id = findImageDiskOrTimeout(tag=self.tag)
 
-        # Run the web server.
-        self.vm_id_webserver, self.vm_ip_webserver = stratusRunInstance(self.webserver_id)
+        # Mark this as a live machine image.
+        stratusUpdateVolume(self.image_uuid, ['--machine-image-live'])
+
+        # Run the web server (from the persistent disk)
+        self.vm_id_webserver, self.vm_ip_webserver = stratusRunInstance(self.image_uuid)
         waitVmRunningOrTimeout(self.vm_id_webserver)
         sshConnectionOrTimeout(self.vm_ip_webserver)
 
