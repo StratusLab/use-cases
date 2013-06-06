@@ -21,7 +21,7 @@ nosetests -v --with-xunit \
   usecases.testPersistentDiskRetainsData \
   usecases.testRunVmFromPersistentDisk \
   usecases.testCloudInitCentOS \
-  usecases.testReadonlyDataDisk
+  usecases.testReadonlyDataDisk \
   usecases.testBasicVmLifecycleCernVM \
   usecases.testCernVmIsAccessibleViaSsh
 
