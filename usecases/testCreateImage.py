@@ -39,7 +39,7 @@ class testCreateImage(unittest.TestCase):
                                                              "--image-version=0.1"])
 
         waitVmRunningOrTimeout(self.vm_id)
-        sshConnectionOrTimeout(self.vm_ip, timeout=(4*60))
+        sshConnectionOrTimeout(self.vm_ip, timeout=(10*60))
 
         # Do machine configuration.
         ssh(ip=self.vm_ip, cmd='rm -f /lib/udev/rules.d/*net-gen*')
