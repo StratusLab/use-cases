@@ -23,8 +23,10 @@ nosetests -v --with-xunit \
  usecases.testCloudInitCentOS \
  usecases.testReadonlyDataDisk \
  usecases.testBasicVmLifecycleCernVM \
- usecases.testCernVmIsAccessibleViaSsh \
- usecases.testCreateImage
+ usecases.testCernVmIsAccessibleViaSsh
+
+# Disable for debugging.
+# usecases.testCreateImage
 
 # Currently not working because additional work on server is needed.
 # See storage issue #19
