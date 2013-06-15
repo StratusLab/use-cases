@@ -61,7 +61,7 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
         originalXml = originalFile.read()
         originalFile.close()
 
-        marketplaceXml = readRemoteXMLFile(url)
+        marketplaceXml = readRemoteFile(url)
 
         # Strip leading and trailing whitespace.  They do not affect the
         # validity of the XML signature and these are often added/removed
@@ -82,10 +82,10 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
         grandparent = os.path.dirname(parent)
 
         # Grandparent URL should provide a response. 
-        _ = readRemoteXMLFile(grandparent)
+        _ = readRemoteFile(grandparent)
 
         deprecatedUrl = stratusDeprecateMetadata(identifier, 'jane.tester@example.org')
-        deprecatedEntry = readRemoteXMLFile(deprecatedUrl)
+        deprecatedEntry = readRemoteFile(deprecatedUrl)
         deprecatedTree = etree.fromstring(deprecatedEntry)
 
         deprecatedReason = self._getElement(deprecatedTree, 
@@ -96,7 +96,7 @@ class testMetadataUploadAndDeprecate(unittest.TestCase):
 
         # After deprecating the entry, the grandparent URL should return nothing (i.e. 404)
         try:
-            readRemoteXMLFile(grandparent)
+            readRemoteFile(grandparent)
         except urllib2.HTTPError as e:
             self.assertEqual(404, e.code, '%s did not give 404 error but %d instead' % 
                              (grandparent, e.code))

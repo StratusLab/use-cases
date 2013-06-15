@@ -39,10 +39,8 @@ vm_image_info = {
 def getVmImageInfo():
     return vm_image_info
 
-def readRemoteXMLFile(url):
-    headers = {'Accept': 'application/xml'}
-    request = urllib2.request(url, None, headers)
-    fd = wget(request)
+def readRemoteFile(url):
+    fd = wget(url)
     return fd.read()
 
 def wget(url):

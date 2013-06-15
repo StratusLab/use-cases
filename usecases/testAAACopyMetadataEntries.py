@@ -61,7 +61,7 @@ class testAAACopyMetadataEntries(unittest.TestCase):
 
             # Contents are wrapped in a metadata root element. 
             # Be sure to remove this element during the processing.
-            contents = readRemoteXMLFile("%s%s" % (self.primaryMarketplaceUrl, entry))
+            contents = readRemoteFile("%s%s" % (self.primaryMarketplaceUrl, entry))
 
             tree = etree.fromstring(contents)
 
