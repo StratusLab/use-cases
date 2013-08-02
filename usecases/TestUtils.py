@@ -14,21 +14,21 @@ import urllib2
 vm_image_info = {
     'ttylinux': {
         'id': 'BN1EEkPiBx87_uLj2-sdybSI-Xb',
-        'email': 'airaj@lal.in2p3.fr',
-        'mkplace-uri': 'https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb/airaj@lal.in2p3.fr/2013-01-14T08:06:16Z',
+        'email': 'images@stratuslab.eu',
+        'mkplace-uri': 'https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb/images@stratuslab.eu/2013-06-14T14:51:20Z',
         'url': 'http://appliances.stratuslab.eu/images/base/ttylinux-14.0-x86_64-base/1.0/ttylinux-14.0-x86_64-base-1.0.img.gz'
         },
     'ubuntu': {
-        'id': 'ObFsK5hQ2CPRBvzEBdW8DYB-2G4',
-        'email': 'hudson.builder@stratuslab.eu',
+        'id': 'L5DrIX5eSjxdxTzQSEOEEotGw3c',
+        'email': 'images@stratuslab.eu',
         },
     'cernvm': {
         'id': 'FPG7anShWeLV3mbCD2wZHKIr8CA',
         'email': 'loomis@lal.in2p3.fr',
         }, 
     'centos': {
-        'id': 'LfjImFaziqhStKNVGQ11OJVJUjw',
-        'email': 'hudson.builder@stratuslab.eu',
+        'id': 'G2yRqidaqqJ0mUB6UKR-26eeiJA',
+        'email': 'images@stratuslab.eu',
         },
     'data': {
         'id': 'GPAUQFkojP5dMQJNdJ4qD_62mCo',
