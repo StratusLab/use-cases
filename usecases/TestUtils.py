@@ -13,10 +13,10 @@ import urllib2
 
 vm_image_info = {
     'ttylinux': {
-        'id': 'BN1EEkPiBx87_uLj2-sdybSI-Xb',
+        'id': 'BtSKdXa2SvHlSVTvgFgivIYDq--',
         'email': 'images@stratuslab.eu',
-        'mkplace-uri': 'https://marketplace.stratuslab.eu/metadata/BN1EEkPiBx87_uLj2-sdybSI-Xb/images@stratuslab.eu/2013-06-14T14:51:20Z',
-        'url': 'http://appliances.stratuslab.eu/images/base/ttylinux-14.0-x86_64-base/1.0/ttylinux-14.0-x86_64-base-1.0.img.gz'
+        'mkplace-uri': 'https://marketplace.stratuslab.eu/metadata/BtSKdXa2SvHlSVTvgFgivIYDq--/images@stratuslab.eu/2013-08-21T08:27:37Z',
+        'url': 'http://appliances.stratuslab.eu/images/base/ttylinux-16.1-x86_64-base/1.0/ttylinux-16.1-x86_64.img.gz'
         },
     'ubuntu': {
         'id': 'L5DrIX5eSjxdxTzQSEOEEotGw3c',
