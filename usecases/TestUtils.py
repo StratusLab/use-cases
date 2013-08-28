@@ -27,7 +27,7 @@ vm_image_info = {
         'email': 'loomis@lal.in2p3.fr',
         }, 
     'centos': {
-        'id': 'G2yRqidaqqJ0mUB6UKR-26eeiJA',
+        'id': 'H8dg0ssw_j4jg67FTwXysCUrJPl',
         'email': 'images@stratuslab.eu',
         },
     'data': {
