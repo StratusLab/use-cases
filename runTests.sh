@@ -1,6 +1,7 @@
 #!/bin/sh
 
 nosetests -v --with-xunit \
+ usecases.testConsolidationPublish \
  usecases.testAAACopyMetadataEntries \
  usecases.testClientHelpOption \
  usecases.testClientVersionOption \
