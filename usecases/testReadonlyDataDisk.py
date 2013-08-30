@@ -18,7 +18,7 @@ class testReadonlyDataDisk(unittest.TestCase):
 
 yum install -y httpd 
 
-mount -t iso9660 /dev/vdc /var/www/html
+mount -t iso9660 -L CDROM /var/www/html
 
 chkconfig httpd on 
 
