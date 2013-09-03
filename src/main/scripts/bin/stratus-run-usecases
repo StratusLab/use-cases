@@ -1,0 +1,117 @@
+#!/usr/bin/env python
+#
+# Created as part of the StratusLab project (http://stratuslab.eu),
+# co-funded by the European Commission under the Grant Agreement
+# INFSO-RI-261552."
+#
+# Copyright (c) 2013, Centre National de la Recherche Scientifique (CNRS)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+import sys
+
+import nose
+from nose.plugins.xunit import Xunit
+
+sys.path.append('/var/lib/stratuslab/python')
+
+from stratuslab.AuthnCommand import AuthnCommand
+from stratuslab.ConfigHolder import ConfigHolder
+import stratuslab.Util as Util
+
+# initialize console logging
+import stratuslab.api.LogUtil as LogUtil
+
+LogUtil.get_console_logger()
+
+
+class MainProgram(AuthnCommand):
+    """Validates a StratusLab infrastructure using client-side use cases."""
+
+    def __init__(self):
+        self.vmIds = []
+        self.config = {}
+        super(MainProgram, self).__init__()
+
+    def parse(self):
+
+        self.parser.usage = '%prog [options] [vm-id ...]'
+
+        self.parser.description = '''
+Runs a series of client-side use cases to validate a StratusLab cloud
+infrastructure.  The user can choose which tests are run as well as 
+which method is used (CLI, Libcloud, etc.).
+'''
+
+        AuthnCommand.addCloudEndpointOptions(self.parser)
+
+        self.parser.add_option('--method', dest='method',
+                               help='validation method to use (cli or libcloud)',
+                               default='cli')
+
+        super(MainProgram, self).parse()
+
+        self.options, self.vmIds = self.parser.parse_args()
+
+    def checkOptions(self):
+        AuthnCommand.checkCloudEndpointOptionsOnly(self)
+        super(MainProgram, self).checkOptions()
+
+    def doWork(self):
+        configHolder = ConfigHolder(self.options.__dict__, self.config or {})
+
+        tests = [
+            'stratuslab_usecases.cli.testAAACopyMetadataEntries',
+            'stratuslab_usecases.cli.testClientHelpOption',
+            'stratuslab_usecases.cli.testClientVersionOption',
+            'stratuslab_usecases.cli.testMetadataSignAndValidate',
+            'stratuslab_usecases.cli.testMetadataUploadAndDeprecate',
+            'stratuslab_usecases.cli.testPrepareContext',
+            'stratuslab_usecases.cli.testBasicPersistentDiskLifecycle',
+            'stratuslab_usecases.cli.testBasicPersistentDiskLifecycleWithTag',
+            'stratuslab_usecases.cli.testUploadImage',
+            'stratuslab_usecases.cli.testDownloadImageFromMarketplace',
+            'stratuslab_usecases.cli.testBasicVmLifecycleTtylinux',
+            'stratuslab_usecases.cli.testBasicVmLifecycleUbuntu',
+            'stratuslab_usecases.cli.testBasicVmLifecycleCentOS',
+            'stratuslab_usecases.cli.testVmIsAccessibleViaSsh',
+            'stratuslab_usecases.cli.testVmStateNotification',
+            'stratuslab_usecases.cli.testAttachAndDetachDisk',
+            'stratuslab_usecases.cli.testKillReleasesAttachedDisk',
+            'stratuslab_usecases.cli.testPersistentDiskRetainsData',
+            'stratuslab_usecases.cli.testRunVmFromPersistentDisk',
+            'stratuslab_usecases.cli.testCloudInitCentOS',
+            'stratuslab_usecases.cli.testReadonlyDataDisk',
+            'stratuslab_usecases.cli.testBasicVmLifecycleCernVM',
+            'stratuslab_usecases.cli.testCernVmIsAccessibleViaSsh',
+            ]
+
+        plugins = [Xunit()]
+
+        testenv = {'NOSE_VERBOSE': 0}
+
+# stratuslab_usecases.cli.testCreateImage
+
+# Currently not working because additional work on server is needed.
+# See storage issue #19
+#  stratuslab_usecases.cli.testUploadAndDownloadImage
+
+        nose.run(argv=tests, plugins=plugins, env=testenv)
+
+
+if __name__ == '__main__':
+    try:
+        MainProgram()
+    except KeyboardInterrupt:
+        print '\n\nExecution interrupted by the user... goodbye!'
