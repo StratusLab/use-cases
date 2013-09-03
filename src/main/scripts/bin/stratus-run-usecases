@@ -72,7 +72,6 @@ which method is used (CLI, Libcloud, etc.).
         configHolder = ConfigHolder(self.options.__dict__, self.config or {})
 
         args = [
-            '--with-xunit',
             '--verbose',
             'stratuslab_usecases.cli.testAAACopyMetadataEntries',
             'stratuslab_usecases.cli.testClientHelpOption',
@@ -105,7 +104,9 @@ which method is used (CLI, Libcloud, etc.).
 # See storage issue #19
 #  stratuslab_usecases.cli.testUploadAndDownloadImage
 
-        nose.run(argv=args)
+        env = {'NOSE_WITH_XUNIT': 'true'}
+
+        nose.run(argv=args, env=env)
 
 
 if __name__ == '__main__':
