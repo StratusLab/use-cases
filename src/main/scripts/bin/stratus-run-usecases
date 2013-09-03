@@ -71,7 +71,9 @@ which method is used (CLI, Libcloud, etc.).
     def doWork(self):
         configHolder = ConfigHolder(self.options.__dict__, self.config or {})
 
-        tests = [
+        args = [
+            '--with-xunit',
+            '--verbose',
             'stratuslab_usecases.cli.testAAACopyMetadataEntries',
             'stratuslab_usecases.cli.testClientHelpOption',
             'stratuslab_usecases.cli.testClientVersionOption',
@@ -97,17 +99,13 @@ which method is used (CLI, Libcloud, etc.).
             'stratuslab_usecases.cli.testCernVmIsAccessibleViaSsh',
             ]
 
-        plugins = [Xunit()]
-
-        testenv = {'NOSE_VERBOSE': 0}
-
 # stratuslab_usecases.cli.testCreateImage
 
 # Currently not working because additional work on server is needed.
 # See storage issue #19
 #  stratuslab_usecases.cli.testUploadAndDownloadImage
 
-        nose.run(argv=tests, plugins=plugins, env=testenv)
+        nose.run(argv=args)
 
 
 if __name__ == '__main__':
