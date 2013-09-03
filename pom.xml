@@ -195,7 +195,7 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>${basedir}/target/pypi-pkg/dist/stratuslab-use-cases-${project.version}.tar.gz</file>
+                  <file>${basedir}/target/pypi-pkg/dist/stratuslab-usecases-${project.version}.tar.gz</file>
                   <type>tar.gz</type>
                 </artifact>
               </artifacts>
