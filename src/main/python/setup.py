@@ -17,7 +17,7 @@ setup(
         ],
 
     install_requires=[
-        "apache-libcloud ==0.12.4",
+        "stratuslab-libcloud-drivers",
         "stratuslab-client",
         "nose",
         ],
