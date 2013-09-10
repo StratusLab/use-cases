@@ -87,7 +87,6 @@ which method is used (CLI, Libcloud, etc.).
             'stratuslab_usecases.cli.testBasicVmLifecycleUbuntu',
             'stratuslab_usecases.cli.testBasicVmLifecycleCentOS',
             'stratuslab_usecases.cli.testVmIsAccessibleViaSsh',
-            'stratuslab_usecases.cli.testVmStateNotification',
             'stratuslab_usecases.cli.testAttachAndDetachDisk',
             'stratuslab_usecases.cli.testKillReleasesAttachedDisk',
             'stratuslab_usecases.cli.testPersistentDiskRetainsData',
