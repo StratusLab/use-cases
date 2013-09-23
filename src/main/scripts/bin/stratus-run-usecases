@@ -71,37 +71,46 @@ which method is used (CLI, Libcloud, etc.).
     def doWork(self):
         configHolder = ConfigHolder(self.options.__dict__, self.config or {})
 
-        args = [
-            '--verbose',
-            'stratuslab_usecases.cli.testAAACopyMetadataEntries',
-            'stratuslab_usecases.cli.testClientHelpOption',
-            'stratuslab_usecases.cli.testClientVersionOption',
-            'stratuslab_usecases.cli.testMetadataSignAndValidate',
-            'stratuslab_usecases.cli.testMetadataUploadAndDeprecate',
-            'stratuslab_usecases.cli.testPrepareContext',
-            'stratuslab_usecases.cli.testBasicPersistentDiskLifecycle',
-            'stratuslab_usecases.cli.testBasicPersistentDiskLifecycleWithTag',
-            'stratuslab_usecases.cli.testUploadImage',
-            'stratuslab_usecases.cli.testDownloadImageFromMarketplace',
-            'stratuslab_usecases.cli.testBasicVmLifecycleTtylinux',
-            'stratuslab_usecases.cli.testBasicVmLifecycleUbuntu',
-            'stratuslab_usecases.cli.testBasicVmLifecycleCentOS',
-            'stratuslab_usecases.cli.testVmIsAccessibleViaSsh',
-            'stratuslab_usecases.cli.testAttachAndDetachDisk',
-            'stratuslab_usecases.cli.testKillReleasesAttachedDisk',
-            'stratuslab_usecases.cli.testPersistentDiskRetainsData',
-            'stratuslab_usecases.cli.testRunVmFromPersistentDisk',
-            'stratuslab_usecases.cli.testCloudInitCentOS',
-            'stratuslab_usecases.cli.testReadonlyDataDisk',
-            'stratuslab_usecases.cli.testBasicVmLifecycleCernVM',
-            'stratuslab_usecases.cli.testCernVmIsAccessibleViaSsh',
-            ]
+        if self.options.method == 'cli':
 
-# stratuslab_usecases.cli.testCreateImage
+            args = [
+                '--verbose',
+                'stratuslab_usecases.cli.testAAACopyMetadataEntries',
+                'stratuslab_usecases.cli.testClientHelpOption',
+                'stratuslab_usecases.cli.testClientVersionOption',
+                'stratuslab_usecases.cli.testMetadataSignAndValidate',
+                'stratuslab_usecases.cli.testMetadataUploadAndDeprecate',
+                'stratuslab_usecases.cli.testPrepareContext',
+                'stratuslab_usecases.cli.testBasicPersistentDiskLifecycle',
+                'stratuslab_usecases.cli.testBasicPersistentDiskLifecycleWithTag',
+                'stratuslab_usecases.cli.testUploadImage',
+                'stratuslab_usecases.cli.testDownloadImageFromMarketplace',
+                'stratuslab_usecases.cli.testBasicVmLifecycleTtylinux',
+                'stratuslab_usecases.cli.testBasicVmLifecycleUbuntu',
+                'stratuslab_usecases.cli.testBasicVmLifecycleCentOS',
+                'stratuslab_usecases.cli.testVmIsAccessibleViaSsh',
+                'stratuslab_usecases.cli.testAttachAndDetachDisk',
+                'stratuslab_usecases.cli.testKillReleasesAttachedDisk',
+                'stratuslab_usecases.cli.testPersistentDiskRetainsData',
+                'stratuslab_usecases.cli.testRunVmFromPersistentDisk',
+                'stratuslab_usecases.cli.testCloudInitCentOS',
+                'stratuslab_usecases.cli.testReadonlyDataDisk',
+                'stratuslab_usecases.cli.testBasicVmLifecycleCernVM',
+                'stratuslab_usecases.cli.testCernVmIsAccessibleViaSsh',
+                # stratuslab_usecases.cli.testCreateImage
+                #  stratuslab_usecases.cli.testUploadAndDownloadImage ; storage issue #19
+                ]
+            
+        elif self.options.method == 'libcloud':
 
-# Currently not working because additional work on server is needed.
-# See storage issue #19
-#  stratuslab_usecases.cli.testUploadAndDownloadImage
+            args = [
+                '--verbose',
+                'stratuslab_usecases.api.testBasicVmLifecycleTtylinux',
+                ]
+            
+        else:
+            msg = "\n\nUnknown method: %s; must be 'cli' or 'libcloud'\n" % self.options.method
+            raise Exception(msg)
 
         env = {'NOSE_WITH_XUNIT': 'true'}
 

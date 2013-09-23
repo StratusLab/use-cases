@@ -10,7 +10,9 @@ setup(
     description='${project.description}',
     long_description=open('README.txt').read(),
 
-    packages=['stratuslab_usecases', 'stratuslab_usecases.cli'],
+    packages=['stratuslab_usecases',
+              'stratuslab_usecases.cli',
+              'stratuslab_usecases.api'],
 
     scripts=[
         'bin/stratus-run-usecases',
