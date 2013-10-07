@@ -1,27 +1,24 @@
 import unittest
 
-from libcloud.compute.providers import set_driver
-from libcloud.compute.providers import get_driver
+from stratuslab_usecases.api import TestUtils
 
-class BasicVmLifecycleTestBase(unittest.TestCase):
+class BasicVmLifecycleTestBase(TestUtils.TestBase):
 
-    set_driver('stratuslab',
-               'stratuslab.libcloud.compute_driver',
-               'StratusLabNodeDriver')
-    StratusLabDriver = get_driver('stratuslab')
-    driver = StratusLabDriver('default')
+    @classmethod
+    def name(cls):
+        return cls.vmName
 
     size = None
-    for s in driver.list_sizes():
+    for s in TestUtils.TestBase.driver.list_sizes():
         if s.id == 'm1.medium': size = s; break
     location = None
-    for l in driver.list_locations():
+    for l in TestUtils.TestBase.driver.list_locations():
         if l.id == 'default': location = l; break
 
     def setUp(self):
-        images = [i for i in self.driver.list_images() if i.name.find(self.name) != -1]
+        images = [i for i in self.driver.list_images() if i.name.find(self.name()) != -1]
         self.image = images[-1]
-        self.node = self.driver.create_node(name = self.name + '-libcloud-node',
+        self.node = self.driver.create_node(name = self.name() + '-libcloud-node',
                                             size = self.size,
                                             location = self.location,
                                             image = self.image)
@@ -31,4 +28,4 @@ class BasicVmLifecycleTestBase(unittest.TestCase):
 
     def test_usecase(self):
         self.driver.wait_until_running([self.node])
-        print self.node
+        print 'running:', self.node

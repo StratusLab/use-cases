@@ -4,7 +4,7 @@ import BasicVmLifecycleTestBase
 
 class testBasicVmLifecycle(BasicVmLifecycleTestBase.BasicVmLifecycleTestBase):
 
-    name = 'ttylinux'
+    vmName = 'ttylinux'
 
 def suite():
     return unittest.TestLoader().loadTestsFromTestCase(testBasicVmLifecycle)

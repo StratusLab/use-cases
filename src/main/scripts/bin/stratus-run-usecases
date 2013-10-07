@@ -22,7 +22,7 @@
 import sys
 
 import nose
-from nose.plugins.xunit import Xunit
+#from nose.plugins.xunit import Xunit
 
 sys.path.append('/var/lib/stratuslab/python')
 
@@ -73,8 +73,7 @@ which method is used (CLI, Libcloud, etc.).
 
         if self.options.method == 'cli':
 
-            args = [
-                '--verbose',
+            tests = [
                 'stratuslab_usecases.cli.testAAACopyMetadataEntries',
                 'stratuslab_usecases.cli.testClientHelpOption',
                 'stratuslab_usecases.cli.testClientVersionOption',
@@ -103,8 +102,9 @@ which method is used (CLI, Libcloud, etc.).
             
         elif self.options.method == 'libcloud':
 
-            args = [
-                '--verbose',
+            tests = [
+                'stratuslab_usecases.api.testBasicPersistentDiskLifecycle',
+                'stratuslab_usecases.api.testBasicPersistentDiskLifecycleWithTag',
                 'stratuslab_usecases.api.testBasicVmLifecycleTtylinux',
                 ]
             
@@ -112,9 +112,15 @@ which method is used (CLI, Libcloud, etc.).
             msg = "\n\nUnknown method: %s; must be 'cli' or 'libcloud'\n" % self.options.method
             raise Exception(msg)
 
-        env = {'NOSE_WITH_XUNIT': 'true'}
-
-        nose.run(argv=args, env=env)
+        verbosity = self.verboseLevel + 1
+        opts = [
+            ('--verbosity=%d' % verbosity)
+            , '--with-xunit'
+#            , '--collect-only'
+            ]
+#        opts=['--verbose', '--with-xunit', '--collect-only']
+        argv = ['nose'] + opts + tests
+        nose.run(argv = argv)
 
 
 if __name__ == '__main__':
