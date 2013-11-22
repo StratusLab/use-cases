@@ -18,7 +18,7 @@ vm_image_info = {
         'url': 'http://appliances.stratuslab.eu/images/base/ttylinux-16.1-x86_64-base/1.0/ttylinux-16.1-x86_64.img.gz'
         },
     'ubuntu': {
-        'id': 'L5DrIX5eSjxdxTzQSEOEEotGw3c',
+        'id': 'MwetUnCvDFNFA1CyHrqTb6c5kQk',
         'email': 'images@stratuslab.eu',
         },
     'cernvm': {
@@ -26,7 +26,7 @@ vm_image_info = {
         'email': 'loomis@lal.in2p3.fr',
         }, 
     'centos': {
-        'id': 'H8dg0ssw_j4jg67FTwXysCUrJPl',
+        'id': 'EAUwgt432O1CsZguppdec_KA5f5',
         'email': 'images@stratuslab.eu',
         },
     'data': {
