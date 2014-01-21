@@ -19,8 +19,9 @@ setup(
         ],
 
     install_requires=[
-        "stratuslab-libcloud-drivers",
-        "stratuslab-client",
+        # do not require these so that rpm installations can be tested
+        #"stratuslab-libcloud-drivers",
+        #"stratuslab-client",
         "nose",
         ],
 
