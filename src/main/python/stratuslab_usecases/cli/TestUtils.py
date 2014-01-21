@@ -264,11 +264,6 @@ def stratusUploadImage(image):
                     "--image-only",
                     image])
 
-def stratusDownloadImage(url, filename):
-    return execute(["stratus-download-image", 
-                    "--output", filename,
-                    url])
-
 def findImageDiskOrTimeout(tag='dummy', timeout=(10*60), sleepInterval=10):
     start = time.time()
     printStep('Started trying to find image disk: %s' % start)
