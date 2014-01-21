@@ -83,7 +83,6 @@ which method is used (CLI, Libcloud, etc.).
                 'stratuslab_usecases.cli.testBasicPersistentDiskLifecycle',
                 'stratuslab_usecases.cli.testBasicPersistentDiskLifecycleWithTag',
                 'stratuslab_usecases.cli.testUploadImage',
-                'stratuslab_usecases.cli.testDownloadImageFromMarketplace',
                 'stratuslab_usecases.cli.testBasicVmLifecycleTtylinux',
                 'stratuslab_usecases.cli.testBasicVmLifecycleUbuntu',
                 'stratuslab_usecases.cli.testBasicVmLifecycleCentOS',
