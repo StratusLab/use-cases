@@ -106,13 +106,16 @@ which method is used (CLI, Libcloud, etc.).
                 'stratuslab_usecases.api.testBasicPersistentDiskLifecycle',
                 'stratuslab_usecases.api.testBasicPersistentDiskLifecycleWithTag',
                 'stratuslab_usecases.api.testBasicVmLifecycleTtylinux',
+                'stratuslab_usecases.api.testBasicVmLifecycleUbuntu',
+                'stratuslab_usecases.api.testBasicVmLifecycleCentOS',
+                'stratuslab_usecases.api.testBasicVmLifecycleCernVM',
                 ]
             
         else:
             msg = "\n\nUnknown method: %s; must be 'cli' or 'libcloud'\n" % self.options.method
             raise Exception(msg)
 
-        verbosity = self.verboseLevel + 1
+        verbosity = self.verboseLevel
         opts = [
             ('--verbosity=%d' % verbosity)
             , '--with-xunit'
