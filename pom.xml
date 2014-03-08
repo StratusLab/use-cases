@@ -5,7 +5,7 @@
 
   <groupId>eu.stratuslab.usecases</groupId>
   <artifactId>stratuslab-usecases</artifactId>
-  <version>14.03.0</version>
+  <version>14.03.1-SNAPSHOT</version>
   <name>Validation Use Cases (POM)</name>
 
   <url>http://github.com/StratusLab/use-cases</url>
@@ -40,7 +40,7 @@
   <scm>
     <connection>scm:git:ssh://git@github.com/StratusLab/use-cases.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/StratusLab/use-cases.git</developerConnection>
-    <tag>stratuslab-usecases-14.03.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <repositories>
