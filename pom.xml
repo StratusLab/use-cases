@@ -5,7 +5,7 @@
 
   <groupId>eu.stratuslab.usecases</groupId>
   <artifactId>stratuslab-usecases</artifactId>
-  <version>14.03.1-SNAPSHOT</version>
+  <version>14.06.0-SNAPSHOT</version>
   <name>Validation Use Cases (POM)</name>
 
   <url>http://github.com/StratusLab/use-cases</url>
@@ -17,7 +17,7 @@
   <parent>
     <groupId>eu.stratuslab</groupId>
     <artifactId>distribution</artifactId>
-    <version>14.03.0</version>
+    <version>14.06.0-SNAPSHOT</version>
   </parent>
 
   <properties>
