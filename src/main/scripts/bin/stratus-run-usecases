@@ -108,6 +108,13 @@ which method is used (CLI, Libcloud, etc.).
                 'stratuslab_usecases.api.testBasicVmLifecycleUbuntu',
                 'stratuslab_usecases.api.testBasicVmLifecycleCentOS',
                 'stratuslab_usecases.api.testBasicVmLifecycleCernVM',
+                'stratuslab_usecases.api.testVmIsAccessibleViaSsh',
+                'stratuslab_usecases.api.testUbuntuVmIsAccessibleViaSsh',
+                'stratuslab_usecases.api.testCentOSVmIsAccessibleViaSsh',
+#                'stratuslab_usecases.api.testCernVmIsAccessibleViaSsh',
+                'stratuslab_usecases.api.testAttachAndDetachDisk',
+                'stratuslab_usecases.api.testKillReleasesAttachedDisk',
+                'stratuslab_usecases.api.testBasicVmDeploymentCentOS',
                 ]
             
         else:
