@@ -1,4 +1,5 @@
 import sys
+import time
 
 from libcloud.compute.ssh import SSHClient, ParamikoSSHClient
 
@@ -140,7 +141,7 @@ class BasicVMsTestBase(TestUtils.TestBase):
 
         self.nodes = list()
         self.ip_addresses = list()
-        for i in xrange(self.vmNum - 1):
+        for i in xrange(self.vmNum):
             try:
                 self.nodes.append(self.driver.create_node(
                     name=self.name() + '-libcloud-node',
@@ -190,23 +191,23 @@ class BasicDiskTestBase(TestUtils.TestBase):
 
 class BasicVMsDiskTestBase(BasicVMsTestBase, BasicDiskTestBase):
     def setUp(self):
-        BasicDiskTestBase.setUp()
+        BasicDiskTestBase.setUp(self)
         try:
-            BasicVMsTestBase.setUp()
+            BasicVMsTestBase.setUp(self)
         except KeyboardInterrupt:
             raise
         except:
-            BasicDiskTestBase.tearDown()
+            BasicDiskTestBase.tearDown(self)
             raise
 
     def tearDown(self):
         try:
-            BasicVMsTestBase.tearDown()
+            BasicVMsTestBase.tearDown(self)
             time.sleep(5)
         except KeyboardInterrupt:
             raise
         except:
-            BasicDiskTestBase.tearDown()
+            BasicDiskTestBase.tearDown(self)
             raise
         else:
-            BasicDiskTestBase.tearDown()
+            BasicDiskTestBase.tearDown(self)

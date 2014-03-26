@@ -114,6 +114,7 @@ which method is used (CLI, Libcloud, etc.).
 #                'stratuslab_usecases.api.testCernVmIsAccessibleViaSsh',
                 'stratuslab_usecases.api.testAttachAndDetachDisk',
                 'stratuslab_usecases.api.testKillReleasesAttachedDisk',
+                'stratuslab_usecases.api.testPersistentDiskRetainsData',
                 'stratuslab_usecases.api.testBasicVmDeploymentCentOS',
                 ]
             
