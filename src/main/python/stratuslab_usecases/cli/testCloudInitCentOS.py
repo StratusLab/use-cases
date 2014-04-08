@@ -13,7 +13,7 @@ class testCloudInitCentOS(unittest.TestCase):
     script_path = None
 
     # contents MUST NOT start with a newline!
-    SCRIPT_CONTENTS = '''#!/bin/bash -x
+    SCRIPT_CONTENTS = '''#!/bin/sh -x
 
 yum install -y httpd 
 
@@ -34,7 +34,7 @@ service httpd start
 
     def _cloudinit_arg(self, script_path):
         cloudinit_args = ['ssh,%s' % self.ssh_key_path,
-                          'none,%s' % script_path]
+                          'x-shellscript,%s' % script_path]
         return '#'.join(cloudinit_args)
 
     def setUp(self):
