@@ -94,8 +94,8 @@ which method is used (CLI, Libcloud, etc.).
                 'stratuslab_usecases.cli.testCloudInitCentOS',
                 'stratuslab_usecases.cli.testReadonlyDataDisk',
                 'stratuslab_usecases.cli.testBasicVmLifecycleCernVM',
-                'stratuslab_usecases.cli.testCernVmIsAccessibleViaSsh',
-                'stratuslab_usecases.cli.testCreateImage'
+                'stratuslab_usecases.cli.testCernVmIsAccessibleViaSsh'
+                # 'stratuslab_usecases.cli.testCreateImage'
                 #  stratuslab_usecases.cli.testUploadAndDownloadImage ; storage issue #19
                 ]
             
