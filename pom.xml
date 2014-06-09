@@ -5,7 +5,7 @@
 
   <groupId>eu.stratuslab.usecases</groupId>
   <artifactId>stratuslab-usecases</artifactId>
-  <version>14.06.1.RC1-SNAPSHOT</version>
+  <version>14.06.0_RC3-SNAPSHOT</version>
   <name>Validation Use Cases (POM)</name>
 
   <url>http://github.com/StratusLab/use-cases</url>
@@ -17,7 +17,7 @@
   <parent>
     <groupId>eu.stratuslab</groupId>
     <artifactId>distribution</artifactId>
-    <version>14.06.0.RC1</version>
+    <version>14.06.0_RC3</version>
   </parent>
 
   <properties>
@@ -26,9 +26,6 @@
 # ${project.artifactId}, ${project.version}, ${maven.build.timestamp}
 #
     </BUILD_INFO>
-
-    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format> 
-    <RELEASE>0.${maven.build.timestamp}.${package.os}</RELEASE>
 
   </properties>
 
