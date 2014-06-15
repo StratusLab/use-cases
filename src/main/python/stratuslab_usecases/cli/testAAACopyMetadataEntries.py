@@ -27,7 +27,7 @@ except ImportError:
 
 class testAAACopyMetadataEntries(unittest.TestCase):
 
-    primaryMarketplaceUrl = 'http://marketplace.stratuslab.eu/metadata/'
+    primaryMarketplaceUrl = 'https://marketplace.stratuslab.eu/marketplace/metadata/'
 
     def getEntriesToCopy(self):
         entriesToCopy = []
