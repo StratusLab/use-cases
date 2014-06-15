@@ -1,0 +1,20 @@
+status: 200
+content-location: https://pdisk.lal.stratuslab.eu/pdisk/pswd/disks/81fdc01e-645d-48d0-b00b-de4ffe3d4dc8
+accept-ranges: bytes
+vary: Accept-Charset, Accept-Encoding, Accept-Language, Accept
+server: nginx/1.0.15
+connection: keep-alive
+date: Fri, 13 Jun 2014 13:35:00 GMT
+content-type: application/json; charset=UTF-8
+-varied-accept-encoding: gzip, deflate
+-varied-accept: application/json
+
+{
+    "uuid": "81fdc01e-645d-48d0-b00b-de4ffe3d4dc8",
+    "tag": "test-disk",
+    "count": "0",
+    "owner": "cal",
+    "size": "1",
+    "type": "MACHINE_IMAGE_LIVE",
+    "visibility": "PRIVATE"
+}
