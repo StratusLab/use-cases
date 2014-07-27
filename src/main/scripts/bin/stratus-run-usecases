@@ -26,7 +26,7 @@ import nose
 
 sys.path.append('/var/lib/stratuslab/python')
 
-from stratuslab.AuthnCommand import AuthnCommand
+from stratuslab.commandbase.AuthnCommand import AuthnCommand
 from stratuslab.ConfigHolder import ConfigHolder
 import stratuslab.Util as Util
 
